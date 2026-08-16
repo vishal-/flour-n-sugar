@@ -10,6 +10,7 @@
     "postinstall": "npx prisma generate"
   },
   "dependencies": {
+    "@iconify-icons/material-symbols": "^1.2.58",
     "@iconify-icons/noto": "^1.2.10",
     "@iconify/react": "^6.0.2",
     "@prisma/adapter-pg": "^7.8.0",
