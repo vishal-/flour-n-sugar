@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Link from "next/link";
 import { useSession } from "@/lib/auth-client";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { UserMenu } from "@/components/auth/UserMenu";
@@ -258,7 +259,7 @@ export default function HomePage() {
             <a href="#categories" className="hover:text-primary transition cursor-pointer">Categories</a>
             <a href="#about" className="hover:text-primary transition cursor-pointer">About Us</a>
             <button onClick={() => triggerToast("Our Blog section is coming soon!")} className="hover:text-primary transition cursor-pointer">Blog</button>
-            <button onClick={() => setShowJoinModal(true)} className="hover:text-primary transition text-primary font-semibold cursor-pointer">For Bakers</button>
+            <Link href="/onboarding" className="hover:text-primary transition text-primary font-semibold cursor-pointer">For Bakers</Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -627,13 +628,13 @@ export default function HomePage() {
             <p className="text-dark-brown/70 dark:text-rose-200/60 text-xs leading-relaxed">
               Create your free profile, show off your signature creations, and start getting discovered by dessert lovers in your area.
             </p>
-            <button
-              onClick={() => setShowJoinModal(true)}
+            <Link
+              href="/onboarding"
               className="bg-dark-brown hover:bg-dark-brown-light dark:bg-primary dark:hover:bg-primary-hover text-white font-bold text-xs px-6 py-3.5 rounded-xl transition inline-flex items-center gap-2 shadow-md cursor-pointer"
             >
               <span>Join as a Baker</span>
               <span>→</span>
-            </button>
+            </Link>
           </div>
           <div className="lg:col-span-4 space-y-4 border-t lg:border-t-0 lg:border-l border-rose-200/50 dark:border-rose-900/30 pt-6 lg:pt-0 lg:pl-8">
             <div className="flex items-start gap-3">

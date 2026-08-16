@@ -28,10 +28,17 @@ enum StoreRole {
 }
 
 enum StoreStatus {
-  PENDING
-  ACTIVE
+  DRAFT
+  PUBLISHED
   SUSPENDED
-  CLOSED
+}
+
+enum StoreType {
+  HOME_BAKER
+  BAKERY
+  CAKE_SHOP
+  CAFE
+  OTHER
 }
 
 
@@ -77,17 +84,70 @@ model Store {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  status StoreStatus @default(PENDING)
+  status    StoreStatus @default(DRAFT)
+  storeType StoreType   @default(HOME_BAKER)
 
   // Public store information
-  description String?
-  logo        String?
-  coverImage  String?
+  description  String?
+  logo         String?
+  coverImage   String?
+  phone        String?
+  contactEmail String?
 
-  // Store members
-  members StoreMember[]
+  // Location & Operations
+  address          String?
+  city             String?
+  state            String?
+  pincode          String?
+  latitude         Float?
+  longitude        Float?
+  deliveryRadiusKm Int?     @default(10)
+  isHomeBaker      Boolean  @default(true)
+
+  // Profile & Story
+  about         String?
+  specialties   String[] @default([])
+  workingDays   String[] @default([])
+  leadTimeHours Int?     @default(24)
+  instagram     String?
+  facebook      String?
+  whatsapp      String?
+  website       String?
+
+  // Relations
+  members  StoreMember[]
+  products Product[]
 
   @@map("store")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// PRODUCT
+// ─────────────────────────────────────────────────────────────
+
+model Product {
+  id          String   @id @default(cuid())
+  storeId     String
+  store       Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  name        String
+  description String?
+  price       Decimal  @db.Decimal(10, 2)
+  images      String[] @default([])
+  category    String?
+
+  // Dietary tags
+  isEggless    Boolean  @default(false)
+  isVegan      Boolean  @default(false)
+  isGlutenFree Boolean  @default(false)
+  isAvailable  Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([storeId])
+  @@map("product")
 }
 
 
