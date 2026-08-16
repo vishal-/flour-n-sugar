@@ -2,6 +2,9 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
+import { useSession } from "@/lib/auth-client";
+import { AuthModal } from "@/components/auth/AuthModal";
+import { UserMenu } from "@/components/auth/UserMenu";
 
 // Mock data for local bakers
 interface Baker {
@@ -142,12 +145,14 @@ const CATEGORIES = [
 ];
 
 export default function HomePage() {
+  const { data: session } = useSession();
   const [selectedLocation, setSelectedLocation] = useState("All Locations");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [activeBakerProfile, setActiveBakerProfile] = useState<Baker | null>(null);
   const [showJoinModal, setShowJoinModal] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
   const [joinSuccess, setJoinSuccess] = useState(false);
   const [mobileTab, setMobileTab] = useState("home");
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -308,15 +313,24 @@ export default function HomePage() {
               )}
             </button>
 
-            {/* Profile Header Button */}
-            <button
-              onClick={() => triggerToast("User Profile page is coming soon!")}
-              className="p-2 text-dark-brown/70 dark:text-rose-100/70 hover:text-primary transition rounded-full hover:bg-rose-50 dark:hover:bg-rose-950/20 cursor-pointer"
-            >
-              <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </button>
+            {/* Profile / Auth Button */}
+            {session?.user ? (
+              <UserMenu
+                user={session.user}
+                onOpenWishlist={() => triggerToast(`Wishlist contains ${wishlist.length} bakeries`)}
+                onOpenOrders={() => triggerToast("Your active orders list is empty.")}
+              />
+            ) : (
+              <button
+                onClick={() => setShowAuthModal(true)}
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary hover:bg-primary-hover text-white text-xs font-bold shadow-xs hover:shadow-sm transition cursor-pointer"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span>Sign In</span>
+              </button>
+            )}
           </div>
         </header>
 
@@ -1095,13 +1109,20 @@ export default function HomePage() {
           </button>
 
           <button
-            onClick={() => { setMobileTab("profile"); triggerToast("Account details coming soon."); }}
+            onClick={() => {
+              setMobileTab("profile");
+              if (session?.user) {
+                triggerToast(`Signed in as ${session.user.name}`);
+              } else {
+                setShowAuthModal(true);
+              }
+            }}
             className={`flex flex-col items-center gap-0.5 ${mobileTab === "profile" ? "text-primary" : "text-dark-brown/60 dark:text-rose-100/60"}`}
           >
             <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
-            <span className="text-[9px] font-bold">Profile</span>
+            <span className="text-[9px] font-bold">{session?.user ? session.user.name.split(" ")[0] : "Sign In"}</span>
           </button>
         </div>
       </div>
@@ -1267,6 +1288,16 @@ export default function HomePage() {
           </div>
         </div>
       )}
+
+      {/* Better Auth Modal */}
+      <AuthModal
+        isOpen={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+        onSuccess={() => {
+          setShowAuthModal(false);
+          triggerToast("Successfully signed in!");
+        }}
+      />
     </div>
   );
 }
