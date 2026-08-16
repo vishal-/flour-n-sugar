@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { signOut } from "@/lib/auth-client";
 
 interface UserMenuProps {
@@ -18,6 +17,7 @@ interface UserMenuProps {
 export function UserMenu({ user, onOpenWishlist, onOpenOrders }: UserMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [signingOut, setSigningOut] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -63,12 +63,11 @@ export function UserMenu({ user, onOpenWishlist, onOpenOrders }: UserMenuProps) 
         className="flex items-center gap-2 p-1 pl-2 pr-3 rounded-full bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-100 dark:hover:bg-rose-900/40 border border-rose-100/60 dark:border-rose-900/30 transition cursor-pointer"
         aria-expanded={isOpen}
       >
-        {user.image ? (
-          <Image
+        {user.image && !imageError ? (
+          <img
             src={user.image}
             alt={user.name}
-            width={28}
-            height={28}
+            onError={() => setImageError(true)}
             className="w-7 h-7 rounded-full object-cover border border-primary/20"
           />
         ) : (

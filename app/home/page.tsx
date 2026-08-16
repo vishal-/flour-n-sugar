@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Image from "next/image";
 import { useSession } from "@/lib/auth-client";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { UserMenu } from "@/components/auth/UserMenu";
@@ -417,13 +416,10 @@ export default function HomePage() {
             <div className="absolute bottom-6 right-6 w-32 h-32 bg-primary-light dark:bg-primary-light/10 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
 
             <div className="relative bg-white dark:bg-[#2b1b17] p-4 rounded-[40px] shadow-card border border-rose-50/50 dark:border-rose-950/30 max-w-[380px]">
-              <Image
+              <img
                 src="/hero-cake.png"
                 alt="Flour n Sugar Specialty Cake"
-                width={360}
-                height={380}
-                className="rounded-[32px] object-cover hover:scale-102 transition duration-500"
-                priority
+                className="w-[360px] h-[380px] rounded-[32px] object-cover hover:scale-102 transition duration-500"
               />
               <div className="absolute -bottom-4 -left-4 bg-white dark:bg-[#2b1b17] px-4 py-3 rounded-2xl shadow-lg border border-rose-50 dark:border-rose-950/30 flex items-center gap-3">
                 <div className="w-10 h-10 bg-primary-light dark:bg-rose-950/40 rounded-full flex items-center justify-center text-primary text-xl font-bold">★</div>
@@ -544,11 +540,9 @@ export default function HomePage() {
                 return (
                   <div key={baker.id} className="bg-white dark:bg-[#2b1b17] rounded-3xl overflow-hidden shadow-sm hover:shadow-card border border-rose-50/50 dark:border-rose-950/30 transition-all duration-300 group flex flex-col justify-between">
                     <div className="relative">
-                      <Image
+                      <img
                         src={baker.image}
                         alt={baker.name}
-                        width={260}
-                        height={180}
                         className="w-full h-44 object-cover group-hover:scale-103 transition duration-500"
                       />
                       {/* Floating Rating Tag */}
@@ -622,12 +616,10 @@ export default function HomePage() {
         {/* Join as Baker Banner */}
         <section className="my-12 bg-rose-100/50 dark:bg-rose-950/10 rounded-[32px] p-8 lg:p-12 border border-rose-100/80 dark:border-rose-900/30 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-4 flex justify-center">
-            <Image
+            <img
               src="/baker-card-5.png"
               alt="Join Flour n Sugar"
-              width={260}
-              height={260}
-              className="rounded-2xl object-cover shadow-md"
+              className="w-[260px] h-[260px] rounded-2xl object-cover shadow-md"
             />
           </div>
           <div className="lg:col-span-4 space-y-4">
@@ -725,12 +717,10 @@ export default function HomePage() {
           </div>
 
           <div className="lg:col-span-5 flex justify-center">
-            <Image
+            <img
               src="/how-it-works.png"
               alt="Freshly baked treats"
-              width={400}
-              height={300}
-              className="rounded-[32px] object-cover shadow-sm border border-rose-50 dark:border-rose-950/30"
+              className="w-[400px] h-[300px] rounded-[32px] object-cover shadow-sm border border-rose-50 dark:border-rose-950/30"
             />
           </div>
         </section>
@@ -832,12 +822,10 @@ export default function HomePage() {
               </p>
             </div>
             <div className="col-span-4 relative flex justify-end">
-              <Image
+              <img
                 src="/hero-cake.png"
                 alt="Cake"
-                width={90}
-                height={90}
-                className="rounded-2xl object-cover shadow-xs border border-rose-50/50"
+                className="w-[90px] h-[90px] rounded-2xl object-cover shadow-xs border border-rose-50/50"
               />
             </div>
           </div>
@@ -946,11 +934,9 @@ export default function HomePage() {
                     className="bg-white dark:bg-[#33221e] rounded-2xl overflow-hidden border border-rose-100/30 shadow-xs flex-shrink-0 w-60 relative flex flex-col justify-between"
                   >
                     <div className="relative">
-                      <Image
+                      <img
                         src={baker.image}
                         alt={baker.name}
-                        width={240}
-                        height={130}
                         className="w-full h-32 object-cover"
                       />
                       {baker.isTopRated && (
@@ -1036,7 +1022,7 @@ export default function HomePage() {
           <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-none">
             <div className="bg-white dark:bg-[#33221e] rounded-xl overflow-hidden border border-rose-100/30 flex-shrink-0 w-36 shadow-xs">
               <div className="relative">
-                <Image src="/baker-card-4.png" alt="Choc" width={150} height={100} className="w-full h-24 object-cover" />
+                <img src="/baker-card-4.png" alt="Choc" className="w-full h-24 object-cover" />
                 <span className="absolute top-1.5 left-1.5 bg-primary text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded-md">-10% OFF</span>
               </div>
               <div className="p-2">
@@ -1046,7 +1032,7 @@ export default function HomePage() {
             </div>
             <div className="bg-white dark:bg-[#33221e] rounded-xl overflow-hidden border border-rose-100/30 flex-shrink-0 w-36 shadow-xs">
               <div className="relative">
-                <Image src="/baker-card-5.png" alt="Flower" width={150} height={100} className="w-full h-24 object-cover" />
+                <img src="/baker-card-5.png" alt="Flower" className="w-full h-24 object-cover" />
                 <span className="absolute top-1.5 left-1.5 bg-emerald-500 text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded-md">NEW</span>
               </div>
               <div className="p-2">
@@ -1056,7 +1042,7 @@ export default function HomePage() {
             </div>
             <div className="bg-white dark:bg-[#33221e] rounded-xl overflow-hidden border border-rose-100/30 flex-shrink-0 w-36 shadow-xs">
               <div className="relative">
-                <Image src="/baker-card-3.png" alt="Cupcake" width={150} height={100} className="w-full h-24 object-cover" />
+                <img src="/baker-card-3.png" alt="Cupcake" className="w-full h-24 object-cover" />
               </div>
               <div className="p-2">
                 <span className="block text-[10px] font-bold text-dark-brown dark:text-rose-100 truncate">Swirl Strawberry Cupcakes</span>
@@ -1146,11 +1132,10 @@ export default function HomePage() {
 
               <div className="py-6 space-y-4">
                 <div className="relative rounded-2xl overflow-hidden h-48">
-                  <Image
+                  <img
                     src={activeBakerProfile.image}
                     alt={activeBakerProfile.name}
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
 
