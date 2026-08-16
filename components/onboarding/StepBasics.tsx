@@ -2,6 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { slugify } from "@/lib/slugify";
+import { NotoIcon } from "@/components/ui/NotoIcon";
+import houseWithGarden from "@iconify-icons/noto/house-with-garden";
+import croissant from "@iconify-icons/noto/croissant";
+import birthdayCake from "@iconify-icons/noto/birthday-cake";
+import hotBeverage from "@iconify-icons/noto/hot-beverage";
+import sparkles from "@iconify-icons/noto/sparkles";
 
 export interface StepBasicsData {
   name: string;
@@ -23,31 +29,31 @@ const STORE_TYPES = [
   {
     id: "HOME_BAKER" as const,
     title: "Home Baker",
-    icon: "🏠",
+    icon: houseWithGarden,
     desc: "Baking fresh from your home kitchen on pre-order",
   },
   {
     id: "BAKERY" as const,
     title: "Artisanal Bakery",
-    icon: "🥐",
+    icon: croissant,
     desc: "Independent bakery with daily fresh bakes & breads",
   },
   {
     id: "CAKE_SHOP" as const,
     title: "Custom Cake Studio",
-    icon: "🎂",
+    icon: birthdayCake,
     desc: "Specialized in designer wedding & birthday celebration cakes",
   },
   {
     id: "CAFE" as const,
     title: "Bakery Cafe",
-    icon: "☕",
+    icon: hotBeverage,
     desc: "Cafe offering dessert slices, pastries & beverages",
   },
   {
     id: "OTHER" as const,
     title: "Dessert Studio / Other",
-    icon: "✨",
+    icon: sparkles,
     desc: "Macaron boutique, chocolate atelier, or cloud kitchen",
   },
 ];
@@ -174,9 +180,9 @@ export function StepBasics({ data, onChange, errors }: StepBasicsProps) {
                     : "bg-white dark:bg-[#33221e] border-rose-100/70 dark:border-rose-950/50 hover:border-rose-200 dark:hover:border-rose-900/60"
                 }`}
               >
-                <span className="text-2xl p-2 rounded-xl bg-white dark:bg-[#2b1b17] shadow-xs flex-shrink-0">
-                  {type.icon}
-                </span>
+                <div className="p-2 rounded-xl bg-white dark:bg-[#2b1b17] shadow-xs flex-shrink-0 flex items-center justify-center">
+                  <NotoIcon icon={type.icon} size={26} />
+                </div>
                 <div className="space-y-0.5">
                   <span className="block text-xs font-extrabold text-dark-brown dark:text-rose-50">
                     {type.title}

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { NotoIcon } from "@/components/ui/NotoIcon";
+import shortcake from "@iconify-icons/noto/shortcake";
 
 export interface OnboardingProduct {
   id: string;
@@ -88,7 +90,7 @@ export function StepProducts({ products, onChange }: StepProductsProps) {
       {/* Optional Notice Card */}
       <div className="p-4 rounded-2xl bg-rose-50/60 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/30 flex items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <span className="text-xl">🍰</span>
+          <NotoIcon icon={shortcake} size={24} />
           <p className="text-xs text-dark-brown/70 dark:text-rose-200/70">
             {products.length === 0
               ? "You can skip this step and launch your store directly!"

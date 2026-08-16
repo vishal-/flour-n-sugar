@@ -1,5 +1,9 @@
 "use client";
 
+import { NotoIcon } from "@/components/ui/NotoIcon";
+import houseWithGarden from "@iconify-icons/noto/house-with-garden";
+import locked from "@iconify-icons/noto/locked";
+
 export interface StepLocationData {
   address: string;
   city: string;
@@ -31,9 +35,9 @@ export function StepLocation({ data, onChange, errors }: StepLocationProps) {
 
       {/* Home Baker Privacy Card */}
       <div className="p-5 rounded-3xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-900/30 flex items-start gap-4">
-        <span className="text-2xl p-2 rounded-2xl bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 flex-shrink-0">
-          🏡
-        </span>
+        <div className="p-2 rounded-2xl bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 flex-shrink-0 flex items-center justify-center">
+          <NotoIcon icon={houseWithGarden} size={28} />
+        </div>
         <div className="flex-1 space-y-1">
           <div className="flex items-center justify-between">
             <span className="text-xs font-extrabold text-dark-brown dark:text-rose-100">
@@ -82,8 +86,9 @@ export function StepLocation({ data, onChange, errors }: StepLocationProps) {
         />
         {errors.address && <p className="text-[11px] text-red-500 font-medium mt-1">{errors.address}</p>}
         {data.isHomeBaker && (
-          <p className="text-[10px] text-dark-brown/50 dark:text-rose-200/50">
-            🔒 Kept confidential for order logistics and pickup instructions only.
+          <p className="text-[10px] text-dark-brown/50 dark:text-rose-200/50 flex items-center gap-1">
+            <NotoIcon icon={locked} size={13} />
+            <span>Kept confidential for order logistics and pickup instructions only.</span>
           </p>
         )}
       </div>

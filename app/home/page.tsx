@@ -5,6 +5,18 @@ import Link from "next/link";
 import { useSession } from "@/lib/auth-client";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { UserMenu } from "@/components/auth/UserMenu";
+import { NotoIcon } from "@/components/ui/NotoIcon";
+import cupcake from "@iconify-icons/noto/cupcake";
+import birthdayCake from "@iconify-icons/noto/birthday-cake";
+import croissant from "@iconify-icons/noto/croissant";
+import chocolateBar from "@iconify-icons/noto/chocolate-bar";
+import cookie from "@iconify-icons/noto/cookie";
+import custard from "@iconify-icons/noto/custard";
+import bread from "@iconify-icons/noto/bread";
+import shortcake from "@iconify-icons/noto/shortcake";
+import glowingStar from "@iconify-icons/noto/glowing-star";
+import fire from "@iconify-icons/noto/fire";
+import womanCook from "@iconify-icons/noto/woman-cook";
 
 // Mock data for local bakers
 interface Baker {
@@ -134,14 +146,14 @@ const LOCATIONS = [
 ];
 
 const CATEGORIES = [
-  { name: "Birthday Cakes", tags: ["Cakes", "Custom Cakes"] },
-  { name: "Cupcakes", tags: ["Cupcakes"] },
-  { name: "Pastries", tags: ["Pastries"] },
-  { name: "Brownies", tags: ["Brownies"] },
-  { name: "Cookies", tags: ["Cookies"] },
-  { name: "Desserts", tags: ["Desserts", "Macarons"] },
-  { name: "Breads", tags: ["Breads"] },
-  { name: "Custom Cakes", tags: ["Custom Cakes"] }
+  { name: "Birthday Cakes", icon: birthdayCake, tags: ["Cakes", "Custom Cakes"] },
+  { name: "Cupcakes", icon: cupcake, tags: ["Cupcakes"] },
+  { name: "Pastries", icon: croissant, tags: ["Pastries"] },
+  { name: "Brownies", icon: chocolateBar, tags: ["Brownies"] },
+  { name: "Cookies", icon: cookie, tags: ["Cookies"] },
+  { name: "Desserts", icon: custard, tags: ["Desserts", "Macarons"] },
+  { name: "Breads", icon: bread, tags: ["Breads"] },
+  { name: "Custom Cakes", icon: shortcake, tags: ["Custom Cakes"] },
 ];
 
 export default function HomePage() {
@@ -441,7 +453,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-            {CATEGORIES.map((cat, idx) => {
+            {CATEGORIES.map((cat) => {
               const isActive = selectedCategory === cat.name;
               return (
                 <button
@@ -454,54 +466,20 @@ export default function HomePage() {
                       triggerToast(`Showing only ${cat.name}`);
                     }
                   }}
-                  className={`flex flex-col items-center p-4 rounded-3xl border transition duration-300 cursor-pointer ${isActive ? "bg-primary border-primary text-white scale-105 shadow-md" : "bg-white dark:bg-[#2b1b17] border-rose-50/60 dark:border-rose-950/30 text-dark-brown dark:text-rose-100 hover:border-primary/40 hover:-translate-y-1 shadow-sm"}`}
+                  className={`flex flex-col items-center p-4 rounded-3xl border transition duration-300 cursor-pointer ${
+                    isActive
+                      ? "bg-primary border-primary text-white scale-105 shadow-md"
+                      : "bg-white dark:bg-[#2b1b17] border-rose-50/60 dark:border-rose-950/30 text-dark-brown dark:text-rose-100 hover:border-primary/40 hover:-translate-y-1 shadow-sm"
+                  }`}
                 >
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3 ${isActive ? "bg-white/20 text-white" : "bg-primary-light dark:bg-rose-950/40 text-primary dark:text-primary-light"}`}>
-                    {/* SVG Icons based on index */}
-                    {idx === 0 && (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v4M12 8v12M8 12h8M6 20h12a2 2 0 002-2v-4H4v4a2 2 0 002 2z" />
-                      </svg>
-                    )}
-                    {idx === 1 && (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8 2 6 5 6 9v2c0 2 2 3 6 3s6-1 6-3V9c0-4-2-7-6-7zM6 14h12v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4z" />
-                      </svg>
-                    )}
-                    {idx === 2 && (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3L2 12h20L12 3zM2 12v7a2 2 0 002 2h16a2 2 0 002-2v-7H2z" />
-                      </svg>
-                    )}
-                    {idx === 3 && (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 4h16v16H4V4zm4 4h8v8H8V8z" />
-                      </svg>
-                    )}
-                    {idx === 4 && (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="9" />
-                        <circle cx="9" cy="9" r="1" fill="currentColor" />
-                        <circle cx="14" cy="10" r="1" fill="currentColor" />
-                        <circle cx="10" cy="14" r="1" fill="currentColor" />
-                        <circle cx="15" cy="14" r="1" fill="currentColor" />
-                      </svg>
-                    )}
-                    {idx === 5 && (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2L4 7v10l8 5 8-5V7l-8-5z" />
-                      </svg>
-                    )}
-                    {idx === 6 && (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12a9 9 0 0115 0H3zM21 12c0 2-4 3-9 3s-9-1-9-3" />
-                      </svg>
-                    )}
-                    {idx === 7 && (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m-6-8h12" />
-                      </svg>
-                    )}
+                  <div
+                    className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3 shadow-xs ${
+                      isActive
+                        ? "bg-white/20"
+                        : "bg-rose-50 dark:bg-rose-950/40"
+                    }`}
+                  >
+                    <NotoIcon icon={cat.icon} size={28} />
                   </div>
                   <span className="text-xs font-bold text-center tracking-tight">{cat.name}</span>
                 </button>
@@ -525,7 +503,9 @@ export default function HomePage() {
 
           {filteredBakers.length === 0 ? (
             <div className="text-center py-12 bg-white dark:bg-[#2b1b17] rounded-3xl border border-rose-50 dark:border-rose-950/30 shadow-sm">
-              <span className="text-3xl">🧁</span>
+              <div className="flex justify-center mb-2">
+                <NotoIcon icon={cupcake} size={36} />
+              </div>
               <p className="text-sm font-semibold text-dark-brown dark:text-rose-100 mt-2">No bakers match your specific filters.</p>
               <button
                 onClick={() => { setSelectedCategory(null); setSelectedLocation("All Locations"); setSearchQuery(""); }}
@@ -855,7 +835,7 @@ export default function HomePage() {
             )}
           </div>
           <div className="flex gap-4 overflow-x-auto px-4 pb-2 scrollbar-none">
-            {CATEGORIES.map((cat, index) => {
+            {CATEGORIES.map((cat) => {
               const isActive = selectedCategory === cat.name;
               return (
                 <button
@@ -863,50 +843,18 @@ export default function HomePage() {
                   onClick={() => setSelectedCategory(isActive ? null : cat.name)}
                   className="flex flex-col items-center flex-shrink-0"
                 >
-                  <div className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xs border ${isActive ? "bg-primary border-primary text-white" : "bg-white dark:bg-[#33221e] border-rose-100/50 text-primary"}`}>
-                    {/* SVG mini category icons */}
-                    {index % 8 === 0 && (
-                      <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v4M12 8v12M8 12h8" />
-                      </svg>
-                    )}
-                    {index % 8 === 1 && (
-                      <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8 2 6 5 6 9v2c0 2 2 3 6 3s6-1 6-3V9c0-4-2-7-6-7z" />
-                      </svg>
-                    )}
-                    {index % 8 === 2 && (
-                      <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3L2 12h20L12 3zM2 12v7h20" />
-                      </svg>
-                    )}
-                    {index % 8 === 3 && (
-                      <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <rect x="4" y="4" width="16" height="16" rx="2" />
-                      </svg>
-                    )}
-                    {index % 8 === 4 && (
-                      <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="9" />
-                      </svg>
-                    )}
-                    {index % 8 === 5 && (
-                      <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2L4 7v10l8 5 8-5V7l-8-5z" />
-                      </svg>
-                    )}
-                    {index % 8 === 6 && (
-                      <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12a9 9 0 0115 0H3z" />
-                      </svg>
-                    )}
-                    {index % 8 === 7 && (
-                      <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m-6-8h12" />
-                      </svg>
-                    )}
+                  <div
+                    className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xs border ${
+                      isActive
+                        ? "bg-primary border-primary"
+                        : "bg-white dark:bg-[#33221e] border-rose-100/50"
+                    }`}
+                  >
+                    <NotoIcon icon={cat.icon} size={28} />
                   </div>
-                  <span className="text-[10px] font-bold text-dark-brown/80 dark:text-rose-100/80 mt-1.5">{cat.name.split(" ")[0]}</span>
+                  <span className="text-[10px] font-bold text-dark-brown/80 dark:text-rose-100/80 mt-1.5">
+                    {cat.name.split(" ")[0]}
+                  </span>
                 </button>
               );
             })}
@@ -941,13 +889,15 @@ export default function HomePage() {
                         className="w-full h-32 object-cover"
                       />
                       {baker.isTopRated && (
-                        <div className="absolute top-2 left-2 bg-amber-400 text-white text-[8px] font-extrabold px-2 py-0.5 rounded-full flex items-center gap-0.5 shadow-xs">
-                          <span>★ Top Rated</span>
+                        <div className="absolute top-2 left-2 bg-amber-400 text-white text-[8px] font-extrabold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                          <NotoIcon icon={glowingStar} size={10} />
+                          <span>Top Rated</span>
                         </div>
                       )}
                       {baker.isPopular && (
-                        <div className="absolute top-2 left-2 bg-primary text-white text-[8px] font-extrabold px-2 py-0.5 rounded-full flex items-center gap-0.5 shadow-xs">
-                          <span>🔥 Popular</span>
+                        <div className="absolute top-2 left-2 bg-primary text-white text-[8px] font-extrabold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                          <NotoIcon icon={fire} size={10} />
+                          <span>Popular</span>
                         </div>
                       )}
 
@@ -1209,7 +1159,9 @@ export default function HomePage() {
 
             {joinSuccess ? (
               <div className="text-center py-8 space-y-4">
-                <span className="text-5xl inline-block animate-bounce">👩‍🍳</span>
+                <div className="flex justify-center">
+                  <NotoIcon icon={womanCook} size={54} className="animate-bounce" />
+                </div>
                 <h3 className="font-serif text-2xl font-bold text-dark-brown dark:text-rose-100">Application Received!</h3>
                 <p className="text-xs text-dark-brown/60 dark:text-rose-200/60 leading-relaxed max-w-xs mx-auto">
                   Thank you for applying to join Flour n Sugar! We will review your profile and reach out within 48 hours.

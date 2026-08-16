@@ -4,16 +4,23 @@ import { useState } from "react";
 import Link from "next/link";
 import { useSession } from "@/lib/auth-client";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { NotoIcon } from "@/components/ui/NotoIcon";
+import cupcake from "@iconify-icons/noto/cupcake";
+import roundPushpin from "@iconify-icons/noto/round-pushpin";
+import womanCook from "@iconify-icons/noto/woman-cook";
+import shortcake from "@iconify-icons/noto/shortcake";
+import sparkles from "@iconify-icons/noto/sparkles";
+import partyPopper from "@iconify-icons/noto/party-popper";
 import { StepBasics, StepBasicsData } from "@/components/onboarding/StepBasics";
 import { StepLocation, StepLocationData } from "@/components/onboarding/StepLocation";
 import { StepProfile, StepProfileData } from "@/components/onboarding/StepProfile";
 import { StepProducts, OnboardingProduct } from "@/components/onboarding/StepProducts";
 
 const STEPS = [
-  { id: 1, title: "Basics", icon: "🧁" },
-  { id: 2, title: "Location", icon: "📍" },
-  { id: 3, title: "Profile", icon: "👩‍🍳" },
-  { id: 4, title: "Products", icon: "🍰" },
+  { id: 1, title: "Basics", icon: cupcake },
+  { id: 2, title: "Location", icon: roundPushpin },
+  { id: 3, title: "Profile", icon: womanCook },
+  { id: 4, title: "Products", icon: shortcake },
 ];
 
 export default function OnboardingPage() {
@@ -162,7 +169,9 @@ export default function OnboardingPage() {
     return (
       <div className="min-h-screen bg-background flex flex-col justify-center items-center p-6 selection:bg-primary-light selection:text-primary">
         <div className="w-full max-w-lg bg-white dark:bg-[#2b1b17] rounded-[36px] p-8 md:p-12 shadow-2xl border border-rose-100 dark:border-rose-950/60 text-center space-y-6 animate-in zoom-in-95 duration-300">
-          <span className="text-6xl inline-block animate-bounce">🎉</span>
+          <div className="inline-flex items-center justify-center p-4 rounded-3xl bg-rose-50 dark:bg-rose-950/50 shadow-inner animate-bounce">
+            <NotoIcon icon={partyPopper} size={64} />
+          </div>
           <div className="space-y-2">
             <span className="text-xs font-extrabold uppercase tracking-widest text-primary">
               Congratulations!
@@ -270,7 +279,7 @@ export default function OnboardingPage() {
                   }`}
                 >
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-extrabold transition shadow-xs ${
+                    className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-extrabold transition shadow-xs ${
                       isCurrent
                         ? "bg-primary text-white scale-110"
                         : isCompleted
@@ -278,7 +287,7 @@ export default function OnboardingPage() {
                         : "bg-stone-100 dark:bg-rose-950/30 text-dark-brown/40 dark:text-rose-200/40"
                     }`}
                   >
-                    {isCompleted ? "✓" : s.icon}
+                    {isCompleted ? "✓" : <NotoIcon icon={s.icon} size={20} />}
                   </div>
                   <span className="text-[11px] font-bold hidden sm:inline">{s.title}</span>
                 </button>
@@ -299,7 +308,7 @@ export default function OnboardingPage() {
         {!session?.user && (
           <div className="mb-8 p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-900/40 flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <span className="text-xl">✨</span>
+              <NotoIcon icon={sparkles} size={22} />
               <p className="text-xs text-dark-brown/80 dark:text-rose-100/80">
                 You can fill out your store details now, and sign in when ready to launch!
               </p>

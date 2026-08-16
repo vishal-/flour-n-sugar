@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { signIn } from "@/lib/auth-client";
+import { NotoIcon } from "@/components/ui/NotoIcon";
+import cupcake from "@iconify-icons/noto/cupcake";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -59,10 +61,8 @@ export function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps) {
 
         {/* Header Content */}
         <div className="text-center space-y-2 mb-8">
-          <div className="w-12 h-12 mx-auto bg-primary-light dark:bg-rose-950/50 rounded-2xl flex items-center justify-center text-primary mb-3 shadow-inner">
-            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2a4 4 0 0 1 4 4v2.5a.5.5 0 0 0 .5.5H18a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3h1.5a.5.5 0 0 0 .5-.5V6a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v2.5c0 .7-.4 1.3-1.07 1.57A4.98 4.98 0 0 0 5 13v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a4.98 4.98 0 0 0-3.93-4.93C14.4 8.8 14 8.2 14 7.5V6a2 2 0 0 0-2-2z" />
-            </svg>
+          <div className="w-14 h-14 mx-auto bg-rose-50 dark:bg-rose-950/50 rounded-2xl flex items-center justify-center mb-3 shadow-inner">
+            <NotoIcon icon={cupcake} size={36} />
           </div>
           <h2 className="font-serif text-2xl font-bold text-dark-brown dark:text-rose-50">
             Welcome to Flour n Sugar
