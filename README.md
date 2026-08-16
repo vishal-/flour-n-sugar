@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flour n Sugar 🧁
 
-## Getting Started
+> **Local Bakers, Made with Love.**
 
-First, run the development server:
+**Flour n Sugar** is a community-driven discovery marketplace and SaaS platform designed to bridge passionate home bakers and artisanal pastry chefs with dessert lovers in their neighborhood.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 The Vision
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Mass-produced, factory-made cakes often lack the warmth, creativity, and clean ingredients of homemade baking. At the same time, talented local bakers and boutique confectioneries struggle with visibility, fragmented messaging channels, and order management.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Flour n Sugar** provides a dedicated home for handcrafted baking—empowering independent bakeries to grow their business while making it effortless for customers to discover fresh, custom treats nearby.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🍰 What We're Building
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1. Neighborhood Bakery Discovery
+- **Hyperlocal Search**: Find verified home bakers, pastry chefs, and dessert creators in your immediate city and neighborhood.
+- **Curated Menus & Specialties**: Explore signature creations—from tiered floral birthday cakes and artisan sourdoughs to handcrafted macarons and vegan brownies.
+- **Social Proof & Reviews**: Transparent community reviews, verified ratings, and direct showcases of real past bakes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. Custom Bakes & Direct Inquiries
+- **Bespoke Creations**: Effortlessly request custom themes, flavor combinations, and dietary requirements (eggless, gluten-free, keto, sugar-free).
+- **Direct Connect**: Seamless communication between buyers and bakers to finalize customization details, pricing, and pickup or delivery schedules.
 
-## Deploy on Vercel
+### 3. All-in-One Bakery Hub (SaaS Platform)
+- **Digital Storefront**: Every bakery gets its own customizable online profile and showcase menu.
+- **Team Collaboration**: Bakery owners can onboard and manage their team with designated roles—including managers, head bakers, assistants, delivery personnel, and accountants.
+- **Order & Inquiry Flow**: Centralized tracking for incoming inquiries, active bake schedules, and completed orders.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👥 Who It's For
+
+- **Dessert Lovers & Event Planners**: Looking for fresh, one-of-a-kind cakes for birthdays, weddings, anniversaries, and everyday cravings.
+- **Home Bakers & Artisans**: Passionate culinary artists wanting to turn their home baking into a thriving, organized local business.
+- **Boutique Bakeries**: Small bakeries needing a modern platform to coordinate team tasks and scale customer reach.

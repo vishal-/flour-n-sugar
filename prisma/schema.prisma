@@ -6,20 +6,138 @@ generator client {
   provider = "prisma-client-js"
 }
 
+
+// ─────────────────────────────────────────────────────────────
+// ENUMS
+// ─────────────────────────────────────────────────────────────
+
+enum PlatformRole {
+  USER
+  MODERATOR
+  SUPPORT
+  ADMIN
+}
+
+enum StoreRole {
+  OWNER
+  MANAGER
+  BAKER
+  STAFF
+  DELIVERY
+  ACCOUNTANT
+}
+
+enum StoreStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+  CLOSED
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// USER
+// ─────────────────────────────────────────────────────────────
+
 model User {
-  id            String    @id
+  id            String   @id
   name          String
   email         String
-  emailVerified Boolean   @default(false)
+  emailVerified Boolean  @default(false)
   image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  sessions      Session[]
-  accounts      Account[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Platform-level role
+  platformRole PlatformRole @default(USER)
+
+  // Stores this user belongs to
+  storeMemberships StoreMember[]
+
+  // Customer profile
+  customerProfile CustomerProfile?
+
+  // Better Auth
+  sessions Session[]
+  accounts Account[]
 
   @@unique([email])
   @@map("user")
 }
+
+
+// ─────────────────────────────────────────────────────────────
+// STORE / TENANT
+// ─────────────────────────────────────────────────────────────
+
+model Store {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  status StoreStatus @default(PENDING)
+
+  // Public store information
+  description String?
+  logo        String?
+  coverImage  String?
+
+  // Store members
+  members StoreMember[]
+
+  @@map("store")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// USER ↔ STORE
+// ─────────────────────────────────────────────────────────────
+
+model StoreMember {
+  id String @id @default(cuid())
+
+  userId  String
+  storeId String
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  role StoreRole
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, storeId])
+  @@index([storeId])
+  @@index([userId])
+  @@map("store_member")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// CUSTOMER PROFILE
+// ─────────────────────────────────────────────────────────────
+
+model CustomerProfile {
+  id String @id @default(cuid())
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  phone String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("customer_profile")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// BETTER AUTH - SESSION
+// ─────────────────────────────────────────────────────────────
 
 model Session {
   id        String   @id
@@ -29,31 +147,46 @@ model Session {
   updatedAt DateTime @updatedAt
   ipAddress String?
   userAgent String?
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([token])
   @@map("session")
 }
+
+
+// ─────────────────────────────────────────────────────────────
+// BETTER AUTH - ACCOUNT
+// ─────────────────────────────────────────────────────────────
 
 model Account {
   id                    String    @id
   accountId             String
   providerId            String
   userId                String
-  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  accessToken           String?
-  refreshToken          String?
-  idToken               String?
-  accessTokenExpiresAt  DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  accessToken          String?
+  refreshToken         String?
+  idToken              String?
+  accessTokenExpiresAt DateTime?
   refreshTokenExpiresAt DateTime?
-  scope                 String?
-  password              String?
-  createdAt             DateTime  @default(now())
-  updatedAt             DateTime  @updatedAt
+
+  scope    String?
+  password String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("account")
 }
+
+
+// ─────────────────────────────────────────────────────────────
+// BETTER AUTH - VERIFICATION
+// ─────────────────────────────────────────────────────────────
 
 model Verification {
   id         String    @id
@@ -65,4 +198,3 @@ model Verification {
 
   @@map("verification")
 }
-
