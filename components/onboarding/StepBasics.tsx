@@ -68,7 +68,6 @@ export function StepBasics({ data, onChange, errors }: StepBasicsProps) {
   // Check slug availability with debounce
   useEffect(() => {
     if (!data.slug || data.slug.length < 3) {
-      setSlugStatus({ checking: false });
       return;
     }
 

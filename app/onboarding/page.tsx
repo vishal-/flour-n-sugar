@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useSession } from "@/lib/auth-client";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { StepBasics, StepBasicsData } from "@/components/onboarding/StepBasics";
@@ -18,7 +17,6 @@ const STEPS = [
 ];
 
 export default function OnboardingPage() {
-  const router = useRouter();
   const { data: session } = useSession();
 
   const [currentStep, setCurrentStep] = useState(1);

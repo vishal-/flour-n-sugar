@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { StoreRole, StoreStatus, StoreType } from "@prisma/client";
 import { slugify } from "@/lib/slugify";
 
 interface ProductInput {
@@ -81,16 +80,12 @@ export async function POST(request: NextRequest) {
       finalSlug = `${finalSlug}-${Math.random().toString(36).substring(2, 6)}`;
     }
 
-    // Map storeType string to Prisma enum
-    const validStoreTypes: Record<string, StoreType> = {
-      HOME_BAKER: StoreType.HOME_BAKER,
-      BAKERY: StoreType.BAKERY,
-      CAKE_SHOP: StoreType.CAKE_SHOP,
-      CAFE: StoreType.CAFE,
-      OTHER: StoreType.OTHER,
-    };
-
-    const enumStoreType = validStoreTypes[storeType] || StoreType.HOME_BAKER;
+    // Validate and sanitize storeType
+    const validStoreTypes = ["HOME_BAKER", "BAKERY", "CAKE_SHOP", "CAFE", "OTHER"] as const;
+    type ValidStoreType = (typeof validStoreTypes)[number];
+    const enumStoreType: ValidStoreType = validStoreTypes.includes(storeType as ValidStoreType)
+      ? (storeType as ValidStoreType)
+      : "HOME_BAKER";
 
     // Create Store, StoreMember, and optional Products in a transaction
     const result = await prisma.$transaction(async (tx) => {
@@ -100,7 +95,7 @@ export async function POST(request: NextRequest) {
           name: name.trim(),
           slug: finalSlug,
           storeType: enumStoreType,
-          status: publishImmediately ? StoreStatus.PUBLISHED : StoreStatus.DRAFT,
+          status: publishImmediately ? "PUBLISHED" : "DRAFT",
           description: description?.trim() || null,
           logo: logo?.trim() || null,
           phone: phone?.trim() || null,
@@ -129,7 +124,7 @@ export async function POST(request: NextRequest) {
         data: {
           userId: session.user.id,
           storeId: createdStore.id,
-          role: StoreRole.OWNER,
+          role: "OWNER",
         },
       });
 

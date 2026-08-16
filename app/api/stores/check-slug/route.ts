@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { slugify, RESERVED_SLUGS } from "@/lib/slugify";
+import { slugify, isValidSlug } from "@/lib/slugify";
 
 export async function GET(request: NextRequest) {
   try {
@@ -16,19 +16,12 @@ export async function GET(request: NextRequest) {
 
     const cleanSlug = slugify(rawSlug);
 
-    if (!cleanSlug || cleanSlug.length < 3) {
+    const validation = isValidSlug(cleanSlug);
+    if (!validation.valid) {
       return NextResponse.json({
         available: false,
         slug: cleanSlug,
-        message: "Slug must be at least 3 characters",
-      });
-    }
-
-    if (RESERVED_SLUGS.has(cleanSlug)) {
-      return NextResponse.json({
-        available: false,
-        slug: cleanSlug,
-        message: "This URL handle is reserved by the system",
+        message: validation.error || "Invalid slug format",
       });
     }
 
