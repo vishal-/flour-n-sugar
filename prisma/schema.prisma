@@ -41,6 +41,15 @@ enum StoreType {
   OTHER
 }
 
+enum ImageType {
+  PRODUCT
+  STORE_LOGO
+  STORE_COVER
+  STORE_GALLERY
+  USER_AVATAR
+  REVIEW
+}
+
 
 // ─────────────────────────────────────────────────────────────
 // USER
@@ -63,6 +72,9 @@ model User {
 
   // Customer profile
   customerProfile CustomerProfile?
+
+  // Uploaded media assets
+  images Image[]
 
   // Better Auth
   sessions Session[]
@@ -117,6 +129,7 @@ model Store {
   // Relations
   members  StoreMember[]
   products Product[]
+  images   Image[]
 
   @@map("store")
 }
@@ -146,8 +159,53 @@ model Product {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  // Media relation
+  media Image[]
+
   @@index([storeId])
   @@map("product")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// UNIFIED MEDIA / IMAGE ASSET
+// ─────────────────────────────────────────────────────────────
+
+model Image {
+  id           String    @id @default(cuid())
+
+  // Entity associations
+  storeId      String?
+  store        Store?    @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  productId    String?
+  product      Product?  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  userId       String?
+  user         User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  type         ImageType @default(PRODUCT)
+
+  // Multi-resolution asset URLs
+  originalUrl  String
+  mediumUrl    String?   // ~800px width for catalog / modal views
+  thumbnailUrl String?   // ~200px width for thumbnails / list views
+  blurHash     String?   // progressive loading placeholder string
+
+  // Metadata & display ordering
+  altText      String?
+  caption      String?
+  sortOrder    Int       @default(0)
+  mimeType     String?   // e.g. "image/webp", "image/jpeg"
+  sizeBytes    Int?      // storage size tracking
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([storeId, type])
+  @@index([productId, sortOrder])
+  @@index([userId])
+  @@map("image")
 }
 
 
