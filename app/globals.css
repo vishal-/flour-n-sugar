@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffcfc;
+  --foreground: #3d2521;
+  --primary: #e86276;
+  --primary-hover: #d14d61;
+  --primary-light: #fff0f2;
+  --dark-brown: #3d2521;
+  --dark-brown-light: #523833;
+  --accent-pink: #fdf2f4;
+  --card-shadow: 0 10px 30px -15px rgba(232, 98, 118, 0.15);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-dark-brown: var(--dark-brown);
+  --color-dark-brown-light: var(--dark-brown-light);
+  --color-accent-pink: var(--accent-pink);
+  
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --font-serif: var(--font-playfair), serif;
+  
+  --shadow-card: var(--card-shadow);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Force Tailwind to use selector-based dark mode instead of system media queries */
+@variant dark (.dark &);
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+/* Custom scrollbar and aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(232, 98, 118, 0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(232, 98, 118, 0.4);
 }

@@ -1,0 +1,260 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// ENUMS
+// ─────────────────────────────────────────────────────────────
+
+enum PlatformRole {
+  USER
+  MODERATOR
+  SUPPORT
+  ADMIN
+}
+
+enum StoreRole {
+  OWNER
+  MANAGER
+  BAKER
+  STAFF
+  DELIVERY
+  ACCOUNTANT
+}
+
+enum StoreStatus {
+  DRAFT
+  PUBLISHED
+  SUSPENDED
+}
+
+enum StoreType {
+  HOME_BAKER
+  BAKERY
+  CAKE_SHOP
+  CAFE
+  OTHER
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// USER
+// ─────────────────────────────────────────────────────────────
+
+model User {
+  id            String   @id
+  name          String
+  email         String
+  emailVerified Boolean  @default(false)
+  image         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Platform-level role
+  platformRole PlatformRole @default(USER)
+
+  // Stores this user belongs to
+  storeMemberships StoreMember[]
+
+  // Customer profile
+  customerProfile CustomerProfile?
+
+  // Better Auth
+  sessions Session[]
+  accounts Account[]
+
+  @@unique([email])
+  @@map("user")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// STORE / TENANT
+// ─────────────────────────────────────────────────────────────
+
+model Store {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  status    StoreStatus @default(DRAFT)
+  storeType StoreType   @default(HOME_BAKER)
+
+  // Public store information
+  description  String?
+  logo         String?
+  coverImage   String?
+  phone        String?
+  contactEmail String?
+
+  // Location & Operations
+  address          String?
+  city             String?
+  state            String?
+  pincode          String?
+  latitude         Float?
+  longitude        Float?
+  deliveryRadiusKm Int?     @default(10)
+  isHomeBaker      Boolean  @default(true)
+
+  // Profile & Story
+  about         String?
+  specialties   String[] @default([])
+  workingDays   String[] @default([])
+  leadTimeHours Int?     @default(24)
+  instagram     String?
+  facebook      String?
+  whatsapp      String?
+  website       String?
+
+  // Relations
+  members  StoreMember[]
+  products Product[]
+
+  @@map("store")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// PRODUCT
+// ─────────────────────────────────────────────────────────────
+
+model Product {
+  id          String   @id @default(cuid())
+  storeId     String
+  store       Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  name        String
+  description String?
+  price       Decimal  @db.Decimal(10, 2)
+  images      String[] @default([])
+  category    String?
+
+  // Dietary tags
+  isEggless    Boolean  @default(false)
+  isVegan      Boolean  @default(false)
+  isGlutenFree Boolean  @default(false)
+  isAvailable  Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([storeId])
+  @@map("product")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// USER ↔ STORE
+// ─────────────────────────────────────────────────────────────
+
+model StoreMember {
+  id String @id @default(cuid())
+
+  userId  String
+  storeId String
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  role StoreRole
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, storeId])
+  @@index([storeId])
+  @@index([userId])
+  @@map("store_member")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// CUSTOMER PROFILE
+// ─────────────────────────────────────────────────────────────
+
+model CustomerProfile {
+  id String @id @default(cuid())
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  phone String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("customer_profile")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// BETTER AUTH - SESSION
+// ─────────────────────────────────────────────────────────────
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+
+  userId String
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@map("session")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// BETTER AUTH - ACCOUNT
+// ─────────────────────────────────────────────────────────────
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  accessToken          String?
+  refreshToken         String?
+  idToken              String?
+  accessTokenExpiresAt DateTime?
+  refreshTokenExpiresAt DateTime?
+
+  scope    String?
+  password String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("account")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// BETTER AUTH - VERIFICATION
+// ─────────────────────────────────────────────────────────────
+
+model Verification {
+  id         String    @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+
+  @@map("verification")
+}
