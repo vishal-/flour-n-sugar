@@ -56,7 +56,7 @@ enum ImageType {
 // ─────────────────────────────────────────────────────────────
 
 model User {
-  id            String   @id
+  id            String   @id @default(uuid(7)) @db.Uuid
   name          String
   email         String
   emailVerified Boolean  @default(false)
@@ -90,7 +90,7 @@ model User {
 // ─────────────────────────────────────────────────────────────
 
 model Store {
-  id        String   @id @default(cuid())
+  id        String   @id @default(uuid(7)) @db.Uuid
   name      String
   slug      String   @unique
   createdAt DateTime @default(now())
@@ -140,8 +140,8 @@ model Store {
 // ─────────────────────────────────────────────────────────────
 
 model Product {
-  id          String   @id @default(cuid())
-  storeId     String
+  id          String   @id @default(uuid(7)) @db.Uuid
+  storeId     String   @db.Uuid
   store       Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
   name        String
@@ -172,16 +172,16 @@ model Product {
 // ─────────────────────────────────────────────────────────────
 
 model Image {
-  id           String    @id @default(cuid())
+  id           String    @id @default(uuid(7)) @db.Uuid
 
   // Entity associations
-  storeId      String?
+  storeId      String?   @db.Uuid
   store        Store?    @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
-  productId    String?
+  productId    String?   @db.Uuid
   product      Product?  @relation(fields: [productId], references: [id], onDelete: Cascade)
 
-  userId       String?
+  userId       String?   @db.Uuid
   user         User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   type         ImageType @default(PRODUCT)
@@ -214,10 +214,10 @@ model Image {
 // ─────────────────────────────────────────────────────────────
 
 model StoreMember {
-  id String @id @default(cuid())
+  id String @id @default(uuid(7)) @db.Uuid
 
-  userId  String
-  storeId String
+  userId  String @db.Uuid
+  storeId String @db.Uuid
 
   user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
   store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
@@ -239,9 +239,9 @@ model StoreMember {
 // ─────────────────────────────────────────────────────────────
 
 model CustomerProfile {
-  id String @id @default(cuid())
+  id String @id @default(uuid(7)) @db.Uuid
 
-  userId String @unique
+  userId String @unique @db.Uuid
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   phone String?
@@ -258,7 +258,7 @@ model CustomerProfile {
 // ─────────────────────────────────────────────────────────────
 
 model Session {
-  id        String   @id
+  id        String   @id @default(uuid(7)) @db.Uuid
   expiresAt DateTime
   token     String
   createdAt DateTime @default(now())
@@ -266,8 +266,8 @@ model Session {
   ipAddress String?
   userAgent String?
 
-  userId String
-  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([token])
   @@map("session")
@@ -279,10 +279,10 @@ model Session {
 // ─────────────────────────────────────────────────────────────
 
 model Account {
-  id                    String    @id
+  id                    String    @id @default(uuid(7)) @db.Uuid
   accountId             String
   providerId            String
-  userId                String
+  userId                String    @db.Uuid
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -307,7 +307,7 @@ model Account {
 // ─────────────────────────────────────────────────────────────
 
 model Verification {
-  id         String    @id
+  id         String    @id @default(uuid(7)) @db.Uuid
   identifier String
   value      String
   expiresAt  DateTime
