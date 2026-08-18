@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { NotoIcon } from "@/components/ui/NotoIcon";
 import { MatIcon } from "@/components/ui/MatIcon";
+import { DietaryIcon } from "@/components/ui/DietaryIcon";
 import shortcake from "@iconify-icons/noto/shortcake";
 import cupcake from "@iconify-icons/noto/cupcake";
 import chatBubbleOutlineRounded from "@iconify-icons/material-symbols/chat-bubble-outline-rounded";
@@ -245,19 +246,12 @@ export function StoreMenu({ products, storeName, whatsapp }: StoreMenuProps) {
                   )}
 
                   {/* Dietary Badges */}
-                  <div className="absolute top-3 right-3 flex items-center gap-1">
-                    {product.isEggless && (
-                      <span
-                        title="100% Eggless"
-                        className="w-6 h-6 rounded-full bg-white/90 dark:bg-[#2b1b17]/90 backdrop-blur-xs flex items-center justify-center shadow-xs border border-emerald-200"
-                      >
-                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                      </span>
-                    )}
+                  <div className="absolute top-3 right-3 flex items-center gap-1.5">
+                    <DietaryIcon vegetarian={product.isEggless} size={18} />
                     {product.isVegan && (
                       <span
                         title="Vegan"
-                        className="w-6 h-6 rounded-full bg-white/90 dark:bg-[#2b1b17]/90 backdrop-blur-xs flex items-center justify-center shadow-xs border border-green-200 text-[10px]"
+                        className="w-5 h-5 rounded-md bg-white/95 dark:bg-[#2b1b17]/95 backdrop-blur-xs flex items-center justify-center shadow-xs border border-green-200 text-[10px]"
                       >
                         🌱
                       </span>
@@ -265,7 +259,7 @@ export function StoreMenu({ products, storeName, whatsapp }: StoreMenuProps) {
                     {product.isGlutenFree && (
                       <span
                         title="Gluten-Free"
-                        className="w-6 h-6 rounded-full bg-white/90 dark:bg-[#2b1b17]/90 backdrop-blur-xs flex items-center justify-center shadow-xs border border-amber-200 text-[10px]"
+                        className="w-5 h-5 rounded-md bg-white/95 dark:bg-[#2b1b17]/95 backdrop-blur-xs flex items-center justify-center shadow-xs border border-amber-200 text-[10px]"
                       >
                         🌾
                       </span>

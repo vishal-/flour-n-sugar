@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { NotoIcon } from "@/components/ui/NotoIcon";
+import { DietaryIcon } from "@/components/ui/DietaryIcon";
 import shortcake from "@iconify-icons/noto/shortcake";
 
 export interface OnboardingProduct {
@@ -111,9 +112,9 @@ export function StepProducts({ products, onChange }: StepProductsProps) {
       {/* List of Added Products */}
       {products.length > 0 && (
         <div className="space-y-3">
-          <h3 className="text-xs font-bold uppercase tracking-wider text-dark-brown/60 dark:text-rose-200/60">
-            Your Initial Catalog
-          </h3>
+          <span className="text-xs font-bold text-dark-brown/80 dark:text-rose-100/80 block">
+            Added Products ({products.length})
+          </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {products.map((prod) => (
               <div
@@ -122,6 +123,7 @@ export function StepProducts({ products, onChange }: StepProductsProps) {
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
+                    <DietaryIcon vegetarian={prod.isEggless} size={15} />
                     <span className="text-xs font-bold text-dark-brown dark:text-rose-100">{prod.name}</span>
                     <span className="text-xs font-extrabold text-primary">₹{prod.price}</span>
                   </div>
