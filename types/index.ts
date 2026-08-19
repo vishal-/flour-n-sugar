@@ -1,6 +1,6 @@
 export * from "./categories";
 export * from "./theme";
-export type {
+export {
   PlatformRole,
   StoreRole,
   StoreStatus,
