@@ -41,13 +41,35 @@ enum StoreType {
   OTHER
 }
 
+enum ImageType {
+  PRODUCT
+  STORE_LOGO
+  STORE_COVER
+  STORE_GALLERY
+  USER_AVATAR
+  REVIEW
+}
+
+enum ProductCategory {
+  CAKES
+  COOKIES_AND_BISCUITS
+  BREADS
+  PASTRIES
+  PIES_TARTS_AND_QUICHES
+  BROWNIES_AND_BARS
+  DONUTS_AND_FRITTERS
+  DESSERTS
+  SAVORY_BAKES
+  CONFECTIONERY
+}
+
 
 // ─────────────────────────────────────────────────────────────
 // USER
 // ─────────────────────────────────────────────────────────────
 
 model User {
-  id            String   @id
+  id            String   @id @default(uuid(7)) @db.Uuid
   name          String
   email         String
   emailVerified Boolean  @default(false)
@@ -64,6 +86,9 @@ model User {
   // Customer profile
   customerProfile CustomerProfile?
 
+  // Uploaded media assets
+  images Image[]
+
   // Better Auth
   sessions Session[]
   accounts Account[]
@@ -78,7 +103,7 @@ model User {
 // ─────────────────────────────────────────────────────────────
 
 model Store {
-  id        String   @id @default(cuid())
+  id        String   @id @default(uuid(7)) @db.Uuid
   name      String
   slug      String   @unique
   createdAt DateTime @default(now())
@@ -117,6 +142,7 @@ model Store {
   // Relations
   members  StoreMember[]
   products Product[]
+  images   Image[]
 
   @@map("store")
 }
@@ -127,15 +153,15 @@ model Store {
 // ─────────────────────────────────────────────────────────────
 
 model Product {
-  id          String   @id @default(cuid())
-  storeId     String
+  id          String   @id @default(uuid(7)) @db.Uuid
+  storeId     String   @db.Uuid
   store       Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
   name        String
   description String?
-  price       Decimal  @db.Decimal(10, 2)
-  images      String[] @default([])
-  category    String?
+  price       Decimal         @db.Decimal(10, 2)
+  images      String[]        @default([])
+  category    ProductCategory @default(CAKES)
 
   // Dietary tags
   isEggless    Boolean  @default(false)
@@ -146,8 +172,124 @@ model Product {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  // Category & Catalog relations
+  subcategoryId    String?         @db.Uuid
+  subcategory      Subcategory?    @relation(fields: [subcategoryId], references: [id], onDelete: SetNull)
+
+  catalogProductId String?         @db.Uuid
+  catalogProduct   CatalogProduct? @relation(fields: [catalogProductId], references: [id], onDelete: SetNull)
+
+  // Media relation
+  media Image[]
+
   @@index([storeId])
+  @@index([subcategoryId])
+  @@index([catalogProductId])
   @@map("product")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// PRODUCT SUBCATEGORY (MASTER)
+// ─────────────────────────────────────────────────────────────
+
+model Subcategory {
+  id          String          @id @default(uuid(7)) @db.Uuid
+  category    ProductCategory
+  name        String
+  slug        String
+  description String?
+  sortOrder   Int             @default(0)
+  isActive    Boolean         @default(true)
+
+  // Relations
+  catalogProducts CatalogProduct[]
+  storeProducts   Product[]
+
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@unique([category, slug])
+  @@index([category, isActive])
+  @@map("subcategory")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// CATALOG / DEFAULT TEMPLATE PRODUCTS (MASTER)
+// ─────────────────────────────────────────────────────────────
+
+model CatalogProduct {
+  id             String          @id @default(uuid(7)) @db.Uuid
+  category       ProductCategory
+  subcategoryId  String?         @db.Uuid
+  subcategory    Subcategory?    @relation(fields: [subcategoryId], references: [id], onDelete: SetNull)
+
+  name           String
+  slug           String          @unique
+  description    String?
+  suggestedPrice Decimal?        @db.Decimal(10, 2)
+  defaultImages  String[]        @default([])
+
+  // Default dietary flags
+  isEggless      Boolean         @default(true)
+  isVegan        Boolean         @default(false)
+  isGlutenFree   Boolean         @default(false)
+
+  sortOrder      Int             @default(0)
+  isActive       Boolean         @default(true)
+
+  // Linked store products created from this template
+  storeProducts  Product[]
+
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@index([category, isActive])
+  @@index([subcategoryId])
+  @@map("catalog_product")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// UNIFIED MEDIA / IMAGE ASSET
+// ─────────────────────────────────────────────────────────────
+
+model Image {
+  id           String    @id @default(uuid(7)) @db.Uuid
+
+  // Entity associations
+  storeId      String?   @db.Uuid
+  store        Store?    @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  productId    String?   @db.Uuid
+  product      Product?  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  userId       String?   @db.Uuid
+  user         User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  type         ImageType @default(PRODUCT)
+
+  // Multi-resolution asset URLs
+  originalUrl  String
+  mediumUrl    String?   // ~800px width for catalog / modal views
+  thumbnailUrl String?   // ~200px width for thumbnails / list views
+  blurHash     String?   // progressive loading placeholder string
+
+  // Metadata & display ordering
+  altText      String?
+  caption      String?
+  sortOrder    Int       @default(0)
+  mimeType     String?   // e.g. "image/webp", "image/jpeg"
+  sizeBytes    Int?      // storage size tracking
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([storeId, type])
+  @@index([productId, sortOrder])
+  @@index([userId])
+  @@map("image")
 }
 
 
@@ -156,10 +298,10 @@ model Product {
 // ─────────────────────────────────────────────────────────────
 
 model StoreMember {
-  id String @id @default(cuid())
+  id String @id @default(uuid(7)) @db.Uuid
 
-  userId  String
-  storeId String
+  userId  String @db.Uuid
+  storeId String @db.Uuid
 
   user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
   store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
@@ -181,9 +323,9 @@ model StoreMember {
 // ─────────────────────────────────────────────────────────────
 
 model CustomerProfile {
-  id String @id @default(cuid())
+  id String @id @default(uuid(7)) @db.Uuid
 
-  userId String @unique
+  userId String @unique @db.Uuid
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   phone String?
@@ -200,7 +342,7 @@ model CustomerProfile {
 // ─────────────────────────────────────────────────────────────
 
 model Session {
-  id        String   @id
+  id        String   @id @default(uuid(7)) @db.Uuid
   expiresAt DateTime
   token     String
   createdAt DateTime @default(now())
@@ -208,8 +350,8 @@ model Session {
   ipAddress String?
   userAgent String?
 
-  userId String
-  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([token])
   @@map("session")
@@ -221,10 +363,10 @@ model Session {
 // ─────────────────────────────────────────────────────────────
 
 model Account {
-  id                    String    @id
+  id                    String    @id @default(uuid(7)) @db.Uuid
   accountId             String
   providerId            String
-  userId                String
+  userId                String    @db.Uuid
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -249,7 +391,7 @@ model Account {
 // ─────────────────────────────────────────────────────────────
 
 model Verification {
-  id         String    @id
+  id         String    @id @default(uuid(7)) @db.Uuid
   identifier String
   value      String
   expiresAt  DateTime
