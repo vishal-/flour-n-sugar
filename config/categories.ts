@@ -73,7 +73,7 @@ export const PRODUCT_CATEGORY_MAP: Record<ProductCategory, CategoryInfo<typeof b
     slug: "donuts-and-fritters",
     aliases: ["donuts", "fritters", "doughnuts"],
     label: "Donuts & Fritters",
-    shortLabel: "Donuts",
+    shortLabel: "Donuts & Fritters",
     icon: doughnut,
     description: "Glazed ring donuts, bomboloni, stuffed donuts & beignets",
   },
