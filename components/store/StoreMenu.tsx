@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { NotoIcon } from "@/components/ui/NotoIcon";
 import { MatIcon } from "@/components/ui/MatIcon";
 import { DietaryIcon } from "@/components/ui/DietaryIcon";
+import { getCategoryShortLabel, getCategoryIcon } from "@/lib/categories";
 import shortcake from "@iconify-icons/noto/shortcake";
 import cupcake from "@iconify-icons/noto/cupcake";
 import chatBubbleOutlineRounded from "@iconify-icons/material-symbols/chat-bubble-outline-rounded";
@@ -129,13 +130,14 @@ export function StoreMenu({ products, storeName, whatsapp }: StoreMenuProps) {
                   type="button"
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition cursor-pointer ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition cursor-pointer flex items-center gap-1.5 ${
                     selectedCategory === cat
                       ? "bg-primary text-white shadow-xs"
                       : "bg-white dark:bg-[#33221e] text-dark-brown/70 dark:text-rose-200/70 border border-rose-100 dark:border-rose-950/60 hover:bg-rose-50"
                   }`}
                 >
-                  {cat}
+                  <NotoIcon icon={getCategoryIcon(cat)} size={14} />
+                  <span>{getCategoryShortLabel(cat)}</span>
                 </button>
               ))}
             </div>
@@ -240,8 +242,9 @@ export function StoreMenu({ products, storeName, whatsapp }: StoreMenuProps) {
 
                   {/* Category Chip */}
                   {product.category && (
-                    <span className="absolute top-3 left-3 bg-white/90 dark:bg-[#2b1b17]/90 backdrop-blur-xs text-dark-brown dark:text-rose-100 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-xs">
-                      {product.category}
+                    <span className="absolute top-3 left-3 bg-white/90 dark:bg-[#2b1b17]/90 backdrop-blur-xs text-dark-brown dark:text-rose-100 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
+                      <NotoIcon icon={getCategoryIcon(product.category)} size={12} />
+                      <span>{getCategoryShortLabel(product.category)}</span>
                     </span>
                   )}
 

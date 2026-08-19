@@ -50,6 +50,19 @@ enum ImageType {
   REVIEW
 }
 
+enum ProductCategory {
+  CAKES
+  COOKIES_AND_BISCUITS
+  BREADS
+  PASTRIES
+  PIES_TARTS_AND_QUICHES
+  BROWNIES_AND_BARS
+  DONUTS_AND_FRITTERS
+  DESSERTS
+  SAVORY_BAKES
+  CONFECTIONERY
+}
+
 
 // ─────────────────────────────────────────────────────────────
 // USER
@@ -146,9 +159,9 @@ model Product {
 
   name        String
   description String?
-  price       Decimal  @db.Decimal(10, 2)
-  images      String[] @default([])
-  category    String?
+  price       Decimal         @db.Decimal(10, 2)
+  images      String[]        @default([])
+  category    ProductCategory @default(CAKES)
 
   // Dietary tags
   isEggless    Boolean  @default(false)

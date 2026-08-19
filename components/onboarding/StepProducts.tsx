@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { NotoIcon } from "@/components/ui/NotoIcon";
 import { DietaryIcon } from "@/components/ui/DietaryIcon";
+import { PRODUCT_CATEGORY_LIST, getCategoryShortLabel } from "@/lib/categories";
 import shortcake from "@iconify-icons/noto/shortcake";
 
 export interface OnboardingProduct {
@@ -22,15 +23,13 @@ interface StepProductsProps {
   onChange: (products: OnboardingProduct[]) => void;
 }
 
-const CATEGORY_PRESETS = ["Cakes", "Cupcakes", "Brownies", "Pastries", "Cookies", "Breads", "Desserts"];
-
 export function StepProducts({ products, onChange }: StepProductsProps) {
   const [showAddForm, setShowAddForm] = useState(products.length === 0);
 
   // New item form state
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("Cakes");
+  const [category, setCategory] = useState("CAKES");
   const [description, setDescription] = useState("");
   const [isEggless, setIsEggless] = useState(true);
   const [isVegan, setIsVegan] = useState(false);
@@ -128,7 +127,7 @@ export function StepProducts({ products, onChange }: StepProductsProps) {
                     <span className="text-xs font-extrabold text-primary">₹{prod.price}</span>
                   </div>
                   <span className="inline-block text-[10px] text-dark-brown/50 dark:text-rose-200/50 bg-rose-50 dark:bg-rose-950/30 px-2 py-0.5 rounded-md font-medium">
-                    {prod.category}
+                    {getCategoryShortLabel(prod.category)}
                   </span>
                   {prod.description && (
                     <p className="text-[11px] text-dark-brown/60 dark:text-rose-200/60 line-clamp-1">
@@ -220,9 +219,9 @@ export function StepProducts({ products, onChange }: StepProductsProps) {
                 onChange={(e) => setCategory(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-2xl border border-rose-100 dark:border-rose-950/60 text-xs font-semibold text-dark-brown dark:text-rose-100 outline-none focus:border-primary transition bg-rose-50/20 dark:bg-rose-950/10 cursor-pointer"
               >
-                {CATEGORY_PRESETS.map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat}
+                {PRODUCT_CATEGORY_LIST.map((cat) => (
+                  <option key={cat.value} value={cat.value}>
+                    {cat.label}
                   </option>
                 ))}
               </select>

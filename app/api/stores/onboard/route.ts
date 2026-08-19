@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { slugify } from "@/lib/slugify";
+import { ProductCategory, PRODUCT_CATEGORIES } from "@/types";
 
 interface ProductInput {
   name: string;
@@ -133,13 +134,18 @@ export async function POST(request: NextRequest) {
         const validProducts = products.filter((p: ProductInput) => p.name && p.name.trim().length > 0);
         for (const p of validProducts) {
           const numPrice = typeof p.price === "string" ? parseFloat(p.price) || 0 : Number(p.price) || 0;
+          const assignedCategory: ProductCategory =
+            p.category && PRODUCT_CATEGORIES.includes(p.category.toUpperCase() as ProductCategory)
+              ? (p.category.toUpperCase() as ProductCategory)
+              : ProductCategory.CAKES;
+
           await tx.product.create({
             data: {
               storeId: createdStore.id,
               name: p.name.trim(),
               description: p.description?.trim() || null,
               price: numPrice,
-              category: p.category?.trim() || "Cakes",
+              category: assignedCategory,
               isEggless: Boolean(p.isEggless),
               isVegan: Boolean(p.isVegan),
               isGlutenFree: Boolean(p.isGlutenFree),
