@@ -244,6 +244,7 @@ model CatalogProduct {
   name           String
   slug           String          @unique
   description    String?
+  image          String?
   suggestedPrice Decimal?        @db.Decimal(10, 2)
   defaultImages  String[]        @default([])
 

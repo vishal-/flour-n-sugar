@@ -31,6 +31,7 @@ interface CatalogProductData {
   name: string;
   slug: string;
   description?: string;
+  image?: string;
   suggestedPrice?: number;
   isEggless: boolean;
   isVegan: boolean;
@@ -111,6 +112,7 @@ async function main() {
         subcategoryId: item.subcategoryId || null,
         name: item.name,
         description: item.description,
+        image: item.image || null,
         suggestedPrice: item.suggestedPrice !== undefined ? item.suggestedPrice : null,
         isEggless: item.isEggless,
         isVegan: item.isVegan,
@@ -124,6 +126,7 @@ async function main() {
         name: item.name,
         slug: item.slug,
         description: item.description,
+        image: item.image || null,
         suggestedPrice: item.suggestedPrice !== undefined ? item.suggestedPrice : null,
         isEggless: item.isEggless,
         isVegan: item.isVegan,
