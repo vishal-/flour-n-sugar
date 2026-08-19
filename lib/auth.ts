@@ -20,4 +20,10 @@ export const auth = betterAuth({
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET || "",
     },
   },
+  advanced: {
+    // DB columns are @db.Uuid; let Prisma's uuid(7) default generate ids instead of better-auth's own string ids
+    database: {
+      generateId: false,
+    },
+  },
 });
