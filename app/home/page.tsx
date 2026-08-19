@@ -6,14 +6,8 @@ import { useSession } from "@/lib/auth-client";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { NotoIcon } from "@/components/ui/NotoIcon";
-import cupcake from "@iconify-icons/noto/cupcake";
-import birthdayCake from "@iconify-icons/noto/birthday-cake";
-import croissant from "@iconify-icons/noto/croissant";
-import chocolateBar from "@iconify-icons/noto/chocolate-bar";
-import cookie from "@iconify-icons/noto/cookie";
-import custard from "@iconify-icons/noto/custard";
-import bread from "@iconify-icons/noto/bread";
-import shortcake from "@iconify-icons/noto/shortcake";
+import { PRODUCT_CATEGORY_LIST } from "@/config/categories";
+import { ProductCategory } from "@/types";
 import glowingStar from "@iconify-icons/noto/glowing-star";
 import fire from "@iconify-icons/noto/fire";
 import womanCook from "@iconify-icons/noto/woman-cook";
@@ -33,6 +27,19 @@ interface Baker {
   isTopRated?: boolean;
   isPopular?: boolean;
 }
+
+const CATEGORY_TAG_MAP: Record<ProductCategory, string[]> = {
+  [ProductCategory.CAKES]: ["Cakes", "Custom Cakes", "Birthday Cakes", "Cupcakes"],
+  [ProductCategory.COOKIES_AND_BISCUITS]: ["Cookies", "Biscuits", "Macarons"],
+  [ProductCategory.BREADS]: ["Breads", "Sourdough", "Loaf"],
+  [ProductCategory.PASTRIES]: ["Pastries", "Croissants", "Danish"],
+  [ProductCategory.PIES_TARTS_AND_QUICHES]: ["Pies", "Tarts", "Quiches"],
+  [ProductCategory.BROWNIES_AND_BARS]: ["Brownies", "Bars"],
+  [ProductCategory.DONUTS_AND_FRITTERS]: ["Donuts", "Fritters"],
+  [ProductCategory.DESSERTS]: ["Desserts", "Cheesecakes", "Puddings"],
+  [ProductCategory.SAVORY_BAKES]: ["Savory Bakes", "Puffs", "Savory"],
+  [ProductCategory.CONFECTIONERY]: ["Confectionery", "Chocolates", "Fudge"],
+};
 
 const MOCK_BAKERS: Baker[] = [
   {
@@ -145,17 +152,6 @@ const LOCATIONS = [
   "Colaba, Mumbai"
 ];
 
-const CATEGORIES = [
-  { name: "Birthday Cakes", icon: birthdayCake, tags: ["Cakes", "Custom Cakes"] },
-  { name: "Cupcakes", icon: cupcake, tags: ["Cupcakes"] },
-  { name: "Pastries", icon: croissant, tags: ["Pastries"] },
-  { name: "Brownies", icon: chocolateBar, tags: ["Brownies"] },
-  { name: "Cookies", icon: cookie, tags: ["Cookies"] },
-  { name: "Desserts", icon: custard, tags: ["Desserts", "Macarons"] },
-  { name: "Breads", icon: bread, tags: ["Breads"] },
-  { name: "Custom Cakes", icon: shortcake, tags: ["Custom Cakes"] },
-];
-
 export default function HomePage() {
   const { data: session } = useSession();
   const [selectedLocation, setSelectedLocation] = useState("All Locations");
@@ -226,8 +222,15 @@ export default function HomePage() {
       const matchesCategory =
         !selectedCategory ||
         baker.tags.some(tag => {
-          const categoryObj = CATEGORIES.find(c => c.name === selectedCategory);
-          return categoryObj?.tags.some(t => t.toLowerCase() === tag.toLowerCase());
+          const categoryObj = PRODUCT_CATEGORY_LIST.find(
+            c => c.value === selectedCategory || c.shortLabel.toLowerCase() === selectedCategory.toLowerCase() || c.slug === selectedCategory
+          );
+          if (!categoryObj) return false;
+          const tags = CATEGORY_TAG_MAP[categoryObj.value] || [];
+          return (
+            tags.some(t => t.toLowerCase() === tag.toLowerCase()) ||
+            tag.toLowerCase().includes(categoryObj.shortLabel.toLowerCase())
+          );
         });
 
       return matchesLocation && matchesSearch && matchesCategory;
@@ -447,44 +450,44 @@ export default function HomePage() {
 
         {/* Categories Section */}
         <section id="categories" className="py-12 border-t border-rose-50/50 dark:border-rose-950/30">
-          <div className="flex flex-col items-center mb-8">
+          <div className="flex flex-col items-center mb-10 text-center">
             <span className="text-[10px] tracking-[0.2em] font-bold text-primary uppercase">Browse Treats</span>
-            <h2 className="font-serif text-3xl font-bold text-dark-brown dark:text-rose-100 mt-1">Explore Delicious Categories</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-dark-brown dark:text-rose-100 mt-1">Explore Delicious Categories</h2>
+            <p className="text-xs sm:text-sm text-dark-brown/60 dark:text-rose-200/60 mt-1.5 max-w-lg">
+              Explore freshly baked delights, artisanal specialties, and local creations by category
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-            {CATEGORIES.map((cat) => {
-              const isActive = selectedCategory === cat.name;
-              return (
-                <button
-                  key={cat.name}
-                  onClick={() => {
-                    if (isActive) {
-                      setSelectedCategory(null);
-                    } else {
-                      setSelectedCategory(cat.name);
-                      triggerToast(`Showing only ${cat.name}`);
-                    }
-                  }}
-                  className={`flex flex-col items-center p-4 rounded-3xl border transition duration-300 cursor-pointer ${
-                    isActive
-                      ? "bg-primary border-primary text-white scale-105 shadow-md"
-                      : "bg-white dark:bg-[#2b1b17] border-rose-50/60 dark:border-rose-950/30 text-dark-brown dark:text-rose-100 hover:border-primary/40 hover:-translate-y-1 shadow-sm"
-                  }`}
-                >
-                  <div
-                    className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3 shadow-xs ${
-                      isActive
-                        ? "bg-white/20"
-                        : "bg-rose-50 dark:bg-rose-950/40"
-                    }`}
-                  >
-                    <NotoIcon icon={cat.icon} size={28} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {PRODUCT_CATEGORY_LIST.map((cat) => (
+              <Link
+                key={cat.value}
+                href={`/treats/${cat.slug}`}
+                className="group flex flex-col justify-between p-5 rounded-3xl bg-white dark:bg-[#2b1b17] border border-rose-100/80 dark:border-rose-950/40 shadow-xs hover:shadow-lg hover:border-primary/40 hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden"
+              >
+                {/* Subtle accent glow on hover */}
+                <div className="absolute -top-8 -right-8 w-20 h-20 bg-primary/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500 pointer-events-none" />
+
+                <div className="">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-50 via-rose-50/60 to-orange-50/40 dark:bg-rose-950/40 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary-light transition-transform duration-300 shadow-2xs">
+                    <NotoIcon icon={cat.icon} size={30} />
                   </div>
-                  <span className="text-xs font-bold text-center tracking-tight">{cat.name}</span>
-                </button>
-              );
-            })}
+
+                  <h3 className="font-serif text-lg font-bold text-dark-brown dark:text-rose-100 group-hover:text-primary transition-colors">
+                    {cat.shortLabel}
+                  </h3>
+
+                  <p className="text-xs text-dark-brown/65 dark:text-rose-200/60 leading-relaxed mt-1.5 line-clamp-2">
+                    {cat.description}
+                  </p>
+                </div>
+
+                {/* <div className="mt-5 pt-3 border-t border-rose-50/80 dark:border-rose-950/30 flex items-center justify-between text-xs font-bold text-primary">
+                  <span>Browse {cat.shortLabel}</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </div> */}
+              </Link>
+            ))}
           </div>
         </section>
 
@@ -504,7 +507,7 @@ export default function HomePage() {
           {filteredBakers.length === 0 ? (
             <div className="text-center py-12 bg-white dark:bg-[#2b1b17] rounded-3xl border border-rose-50 dark:border-rose-950/30 shadow-sm">
               <div className="flex justify-center mb-2">
-                <NotoIcon icon={cupcake} size={36} />
+                <NotoIcon icon={PRODUCT_CATEGORY_LIST[0].icon} size={36} />
               </div>
               <p className="text-sm font-semibold text-dark-brown dark:text-rose-100 mt-2">No bakers match your specific filters.</p>
               <button
@@ -829,35 +832,24 @@ export default function HomePage() {
         {/* Mobile Horizontal scroll Categories */}
         <div className="py-4">
           <div className="px-4 flex justify-between items-center mb-3">
-            <span className="text-xs font-extrabold text-dark-brown dark:text-rose-100">Dessert Categories</span>
-            {selectedCategory && (
-              <button onClick={() => setSelectedCategory(null)} className="text-[10px] text-primary font-bold">Clear filter</button>
-            )}
+            <span className="text-xs font-extrabold text-dark-brown dark:text-rose-100">Browse Categories</span>
+            <Link href="/treats/cakes" className="text-[10px] text-primary font-bold">View all</Link>
           </div>
-          <div className="flex gap-4 overflow-x-auto px-4 pb-2 scrollbar-none">
-            {CATEGORIES.map((cat) => {
-              const isActive = selectedCategory === cat.name;
-              return (
-                <button
-                  key={cat.name}
-                  onClick={() => setSelectedCategory(isActive ? null : cat.name)}
-                  className="flex flex-col items-center flex-shrink-0"
-                >
-                  <div
-                    className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xs border ${
-                      isActive
-                        ? "bg-primary border-primary"
-                        : "bg-white dark:bg-[#33221e] border-rose-100/50"
-                    }`}
-                  >
-                    <NotoIcon icon={cat.icon} size={28} />
-                  </div>
-                  <span className="text-[10px] font-bold text-dark-brown/80 dark:text-rose-100/80 mt-1.5">
-                    {cat.name.split(" ")[0]}
-                  </span>
-                </button>
-              );
-            })}
+          <div className="flex gap-3 overflow-x-auto px-4 pb-2 scrollbar-none">
+            {PRODUCT_CATEGORY_LIST.map((cat) => (
+              <Link
+                key={cat.value}
+                href={`/treats/${cat.slug}`}
+                className="flex flex-col items-center flex-shrink-0 group"
+              >
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xs border border-rose-100/70 bg-white dark:bg-[#33221e] group-hover:border-primary/50 group-active:scale-95 transition">
+                  <NotoIcon icon={cat.icon} size={30} />
+                </div>
+                <span className="text-[10px] font-bold text-dark-brown/80 dark:text-rose-100/80 mt-1.5 text-center max-w-[72px] truncate group-hover:text-primary transition">
+                  {cat.shortLabel}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
 
