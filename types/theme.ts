@@ -2,8 +2,6 @@ import { StoreFrontTheme } from "@prisma/client";
 
 export { StoreFrontTheme };
 
-export const STOREFRONT_THEMES = Object.values(StoreFrontTheme);
-
 export interface ThemeDefinition {
   value: StoreFrontTheme;
   name: string;
@@ -14,16 +12,11 @@ export interface ThemeDefinition {
   description: string;
 }
 
-export const STOREFRONT_THEME_MAP: Record<StoreFrontTheme, ThemeDefinition> = {
-  [StoreFrontTheme.OVEN_GLOW]: {
-    value: StoreFrontTheme.OVEN_GLOW,
-    name: "Oven Glow",
-    tagline: "Warm terracotta & ember warmth",
-    primaryColor: "#E0533C",
-    accentColor: "#FDE8E4",
-    bgGradient: "from-rose-50/80 via-white to-background",
-    description: "Classic warm bakery ambiance with glowing berry and terracotta accents.",
-  },
+/**
+ * Active storefront themes that have dedicated template implementations.
+ * (Unimplemented themes are commented out below for future rollouts)
+ */
+export const STOREFRONT_THEME_MAP: Partial<Record<StoreFrontTheme, ThemeDefinition>> = {
   [StoreFrontTheme.WARM_CRUST]: {
     value: StoreFrontTheme.WARM_CRUST,
     name: "Warm Crust",
@@ -41,6 +34,26 @@ export const STOREFRONT_THEME_MAP: Record<StoreFrontTheme, ThemeDefinition> = {
     accentColor: "#FDF0F4",
     bgGradient: "from-pink-50/80 via-white to-background",
     description: "Soft sweet boutique pastry aesthetic with icing sugar charm.",
+  },
+  [StoreFrontTheme.HONEY_DRIP]: {
+    value: StoreFrontTheme.HONEY_DRIP,
+    name: "Honey Drip",
+    tagline: "Sunlit wild blossom honey amber",
+    primaryColor: "#E08A1E",
+    accentColor: "#FFF8ED",
+    bgGradient: "from-amber-50/90 via-white to-background",
+    description: "Vibrant golden nectar tones for sweet bakeries, waffles, and honey cakes.",
+  },
+
+  /*
+  [StoreFrontTheme.OVEN_GLOW]: {
+    value: StoreFrontTheme.OVEN_GLOW,
+    name: "Oven Glow",
+    tagline: "Warm terracotta & ember warmth",
+    primaryColor: "#E0533C",
+    accentColor: "#FDE8E4",
+    bgGradient: "from-rose-50/80 via-white to-background",
+    description: "Classic warm bakery ambiance with glowing berry and terracotta accents.",
   },
   [StoreFrontTheme.RISING_DOUGH]: {
     value: StoreFrontTheme.RISING_DOUGH,
@@ -105,15 +118,6 @@ export const STOREFRONT_THEME_MAP: Record<StoreFrontTheme, ThemeDefinition> = {
     bgGradient: "from-amber-50/60 via-white to-background",
     description: "Cozy cookie and tea-biscuit palette with nutty biscuit warmth.",
   },
-  [StoreFrontTheme.HONEY_DRIP]: {
-    value: StoreFrontTheme.HONEY_DRIP,
-    name: "Honey Drip",
-    tagline: "Sunlit wild blossom honey amber",
-    primaryColor: "#E08A1E",
-    accentColor: "#FFF8ED",
-    bgGradient: "from-amber-50/90 via-white to-background",
-    description: "Vibrant golden nectar tones for sweet bakeries, waffles, and honey cakes.",
-  },
   [StoreFrontTheme.CINNAMON_HAZE]: {
     value: StoreFrontTheme.CINNAMON_HAZE,
     name: "Cinnamon Haze",
@@ -123,6 +127,11 @@ export const STOREFRONT_THEME_MAP: Record<StoreFrontTheme, ThemeDefinition> = {
     bgGradient: "from-rose-50/90 via-white to-background",
     description: "Warm festive spice aroma aesthetic featuring rich cinnamon and nutmeg red-browns.",
   },
+  */
 };
 
-export const STOREFRONT_THEME_LIST = Object.values(STOREFRONT_THEME_MAP);
+export const STOREFRONT_THEME_LIST: ThemeDefinition[] = Object.values(STOREFRONT_THEME_MAP).filter(
+  (t): t is ThemeDefinition => Boolean(t)
+);
+
+export const STOREFRONT_THEMES: StoreFrontTheme[] = STOREFRONT_THEME_LIST.map((t) => t.value);

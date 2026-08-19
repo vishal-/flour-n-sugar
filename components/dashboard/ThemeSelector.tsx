@@ -25,7 +25,10 @@ export function ThemeSelector({
   const [statusMessage, setStatusMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   const hasChanges = selectedTheme !== savedTheme;
-  const currentDef = STOREFRONT_THEME_MAP[selectedTheme];
+  const currentDef =
+    (selectedTheme && STOREFRONT_THEME_MAP[selectedTheme]) ||
+    STOREFRONT_THEME_MAP[StoreFrontTheme.WARM_CRUST] ||
+    STOREFRONT_THEME_LIST[0];
 
   const handleSave = async () => {
     setIsSaving(true);
