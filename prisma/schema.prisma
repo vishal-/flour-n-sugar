@@ -63,6 +63,21 @@ enum ProductCategory {
   CONFECTIONERY
 }
 
+enum StoreFrontTheme {
+  OVEN_GLOW
+  WARM_CRUST
+  SUGAR_DUST
+  RISING_DOUGH
+  BUTTER_SOFT
+  GOLDEN_BAKE
+  FLOUR_CLOUD
+  PROOFING
+  KNEADED
+  CRUMB_TRAIL
+  HONEY_DRIP
+  CINNAMON_HAZE
+}
+
 
 // ─────────────────────────────────────────────────────────────
 // USER
@@ -112,7 +127,8 @@ model Store {
   status    StoreStatus @default(DRAFT)
   storeType StoreType   @default(HOME_BAKER)
 
-  // Public store information
+  // Public store information & styling
+  theme        StoreFrontTheme @default(OVEN_GLOW)
   description  String?
   logo         String?
   coverImage   String?
@@ -199,6 +215,7 @@ model Subcategory {
   name        String
   slug        String
   description String?
+  image       String?
   sortOrder   Int             @default(0)
   isActive    Boolean         @default(true)
 
@@ -228,6 +245,7 @@ model CatalogProduct {
   name           String
   slug           String          @unique
   description    String?
+  image          String?
   suggestedPrice Decimal?        @db.Decimal(10, 2)
   defaultImages  String[]        @default([])
 

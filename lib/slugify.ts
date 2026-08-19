@@ -13,6 +13,7 @@ export const RESERVED_SLUGS = new Set([
   "signout",
   "dashboard",
   "admin",
+  "bakes",
   "bakers",
   "explore",
   "about",
