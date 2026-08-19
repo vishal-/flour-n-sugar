@@ -22,6 +22,7 @@ interface SubcategoryData {
   name: string;
   slug: string;
   description?: string;
+  image?: string | null;
   sortOrder: number;
 }
 
@@ -31,7 +32,7 @@ interface CatalogProductData {
   name: string;
   slug: string;
   description?: string;
-  image?: string;
+  image?: string | null;
   suggestedPrice?: number;
   isEggless: boolean;
   isVegan: boolean;
@@ -64,6 +65,7 @@ async function main() {
         name: item.name,
         slug: item.slug,
         description: item.description,
+        image: item.image || null,
         sortOrder: item.sortOrder,
         isActive: true,
       },
@@ -73,6 +75,7 @@ async function main() {
         name: item.name,
         slug: item.slug,
         description: item.description,
+        image: item.image || null,
         sortOrder: item.sortOrder,
         isActive: true,
       },

@@ -9,7 +9,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 1,
-    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125"
+    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -21,7 +22,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 2,
-    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125"
+    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -33,7 +35,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 3,
-    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125"
+    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -45,7 +48,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 4,
-    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125"
+    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -57,7 +61,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 5,
-    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125"
+    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -69,7 +74,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 6,
-    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125"
+    "subcategoryId": "996e2756-4cf5-434d-ac52-322bb4daf125",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -81,7 +87,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 7,
-    "subcategoryId": "8593c9f8-df0e-4961-ac60-5cdde22addf9"
+    "subcategoryId": "8593c9f8-df0e-4961-ac60-5cdde22addf9",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -93,7 +100,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 8,
-    "subcategoryId": "8593c9f8-df0e-4961-ac60-5cdde22addf9"
+    "subcategoryId": "8593c9f8-df0e-4961-ac60-5cdde22addf9",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -105,7 +113,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 9,
-    "subcategoryId": "e996dd89-46e7-4510-b875-9e6059180f4a"
+    "subcategoryId": "e996dd89-46e7-4510-b875-9e6059180f4a",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -117,7 +126,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 10,
-    "subcategoryId": "e996dd89-46e7-4510-b875-9e6059180f4a"
+    "subcategoryId": "e996dd89-46e7-4510-b875-9e6059180f4a",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -129,7 +139,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 11,
-    "subcategoryId": "e996dd89-46e7-4510-b875-9e6059180f4a"
+    "subcategoryId": "e996dd89-46e7-4510-b875-9e6059180f4a",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -141,7 +152,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 12,
-    "subcategoryId": "80eede72-6d0e-47a0-ab09-433f7f693dc9"
+    "subcategoryId": "80eede72-6d0e-47a0-ab09-433f7f693dc9",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -153,7 +165,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 13,
-    "subcategoryId": "80eede72-6d0e-47a0-ab09-433f7f693dc9"
+    "subcategoryId": "80eede72-6d0e-47a0-ab09-433f7f693dc9",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -165,7 +178,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 14,
-    "subcategoryId": "913fe283-c9bc-4e38-a260-a58416edb700"
+    "subcategoryId": "913fe283-c9bc-4e38-a260-a58416edb700",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -177,7 +191,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 15,
-    "subcategoryId": "601985d7-e741-4876-b49f-e260d64ef804"
+    "subcategoryId": "601985d7-e741-4876-b49f-e260d64ef804",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -189,7 +204,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 20,
-    "subcategoryId": "b4f3a7e6-1abc-41e2-ba45-932937443c48"
+    "subcategoryId": "b4f3a7e6-1abc-41e2-ba45-932937443c48",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -201,7 +217,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 21,
-    "subcategoryId": "b4f3a7e6-1abc-41e2-ba45-932937443c48"
+    "subcategoryId": "b4f3a7e6-1abc-41e2-ba45-932937443c48",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -213,7 +230,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 22,
-    "subcategoryId": "b4f3a7e6-1abc-41e2-ba45-932937443c48"
+    "subcategoryId": "b4f3a7e6-1abc-41e2-ba45-932937443c48",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -225,7 +243,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 23,
-    "subcategoryId": "b4f3a7e6-1abc-41e2-ba45-932937443c48"
+    "subcategoryId": "b4f3a7e6-1abc-41e2-ba45-932937443c48",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -237,7 +256,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 24,
-    "subcategoryId": "9f553b57-5cfe-4d87-82a6-91b68fb8eafe"
+    "subcategoryId": "9f553b57-5cfe-4d87-82a6-91b68fb8eafe",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -249,7 +269,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 25,
-    "subcategoryId": "9f553b57-5cfe-4d87-82a6-91b68fb8eafe"
+    "subcategoryId": "9f553b57-5cfe-4d87-82a6-91b68fb8eafe",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -261,7 +282,8 @@
     "isVegan": false,
     "isGlutenFree": true,
     "sortOrder": 26,
-    "subcategoryId": "8447e13f-e6e4-4e8c-a833-55947e6569dc"
+    "subcategoryId": "8447e13f-e6e4-4e8c-a833-55947e6569dc",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -273,7 +295,8 @@
     "isVegan": true,
     "isGlutenFree": false,
     "sortOrder": 30,
-    "subcategoryId": "10f6b11a-2243-4993-a386-e6b9bdf62e7f"
+    "subcategoryId": "10f6b11a-2243-4993-a386-e6b9bdf62e7f",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -285,7 +308,8 @@
     "isVegan": true,
     "isGlutenFree": false,
     "sortOrder": 31,
-    "subcategoryId": "10f6b11a-2243-4993-a386-e6b9bdf62e7f"
+    "subcategoryId": "10f6b11a-2243-4993-a386-e6b9bdf62e7f",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -297,7 +321,8 @@
     "isVegan": true,
     "isGlutenFree": false,
     "sortOrder": 32,
-    "subcategoryId": "10f6b11a-2243-4993-a386-e6b9bdf62e7f"
+    "subcategoryId": "10f6b11a-2243-4993-a386-e6b9bdf62e7f",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -309,7 +334,8 @@
     "isVegan": true,
     "isGlutenFree": false,
     "sortOrder": 33,
-    "subcategoryId": "10f6b11a-2243-4993-a386-e6b9bdf62e7f"
+    "subcategoryId": "10f6b11a-2243-4993-a386-e6b9bdf62e7f",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -321,7 +347,8 @@
     "isVegan": true,
     "isGlutenFree": false,
     "sortOrder": 34,
-    "subcategoryId": "caaeb059-712b-4a5a-91cc-7567aaa44084"
+    "subcategoryId": "caaeb059-712b-4a5a-91cc-7567aaa44084",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -333,7 +360,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 35,
-    "subcategoryId": "caaeb059-712b-4a5a-91cc-7567aaa44084"
+    "subcategoryId": "caaeb059-712b-4a5a-91cc-7567aaa44084",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -345,7 +373,8 @@
     "isVegan": true,
     "isGlutenFree": false,
     "sortOrder": 36,
-    "subcategoryId": "8d84abce-8fdc-4dee-b36b-b3511fbb9b95"
+    "subcategoryId": "8d84abce-8fdc-4dee-b36b-b3511fbb9b95",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -357,7 +386,8 @@
     "isVegan": true,
     "isGlutenFree": false,
     "sortOrder": 37,
-    "subcategoryId": "8d84abce-8fdc-4dee-b36b-b3511fbb9b95"
+    "subcategoryId": "8d84abce-8fdc-4dee-b36b-b3511fbb9b95",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -369,7 +399,8 @@
     "isVegan": true,
     "isGlutenFree": false,
     "sortOrder": 38,
-    "subcategoryId": "04a8fc24-86dd-45e4-aa4c-bcf1530b1e04"
+    "subcategoryId": "04a8fc24-86dd-45e4-aa4c-bcf1530b1e04",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -381,7 +412,8 @@
     "isVegan": true,
     "isGlutenFree": false,
     "sortOrder": 39,
-    "subcategoryId": "96ff001b-2bf0-4b94-8d6f-7e2e6f38e185"
+    "subcategoryId": "96ff001b-2bf0-4b94-8d6f-7e2e6f38e185",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -393,7 +425,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 40,
-    "subcategoryId": "d09b154c-743b-4af6-83bf-3094e2296337"
+    "subcategoryId": "d09b154c-743b-4af6-83bf-3094e2296337",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -405,7 +438,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 41,
-    "subcategoryId": "d09b154c-743b-4af6-83bf-3094e2296337"
+    "subcategoryId": "d09b154c-743b-4af6-83bf-3094e2296337",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -417,7 +451,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 42,
-    "subcategoryId": "2cebe1f5-5b10-438f-aad4-f77271b8cb9d"
+    "subcategoryId": "2cebe1f5-5b10-438f-aad4-f77271b8cb9d",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -429,7 +464,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 43,
-    "subcategoryId": "334720bd-b3b0-4abe-97cc-3dd18508dca5"
+    "subcategoryId": "334720bd-b3b0-4abe-97cc-3dd18508dca5",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -441,7 +477,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 44,
-    "subcategoryId": "334720bd-b3b0-4abe-97cc-3dd18508dca5"
+    "subcategoryId": "334720bd-b3b0-4abe-97cc-3dd18508dca5",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -453,7 +490,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 45,
-    "subcategoryId": "bbfe3105-56f2-4f04-b983-fb8c9355abe6"
+    "subcategoryId": "bbfe3105-56f2-4f04-b983-fb8c9355abe6",
+    "image": null
   },
   {
     "category": "PIES_TARTS_AND_QUICHES",
@@ -465,7 +503,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 50,
-    "subcategoryId": "d1fd6c6a-d8be-4d04-9803-c5b4d84d8e48"
+    "subcategoryId": "d1fd6c6a-d8be-4d04-9803-c5b4d84d8e48",
+    "image": null
   },
   {
     "category": "PIES_TARTS_AND_QUICHES",
@@ -477,7 +516,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 51,
-    "subcategoryId": "ba64155c-2367-452d-b22c-421c5ca15846"
+    "subcategoryId": "ba64155c-2367-452d-b22c-421c5ca15846",
+    "image": null
   },
   {
     "category": "PIES_TARTS_AND_QUICHES",
@@ -489,7 +529,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 52,
-    "subcategoryId": "ba64155c-2367-452d-b22c-421c5ca15846"
+    "subcategoryId": "ba64155c-2367-452d-b22c-421c5ca15846",
+    "image": null
   },
   {
     "category": "PIES_TARTS_AND_QUICHES",
@@ -501,7 +542,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 53,
-    "subcategoryId": "d271a3b3-8db4-492f-86f6-a908fd9b7251"
+    "subcategoryId": "d271a3b3-8db4-492f-86f6-a908fd9b7251",
+    "image": null
   },
   {
     "category": "BROWNIES_AND_BARS",
@@ -513,7 +555,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 60,
-    "subcategoryId": "7bf87f27-84b4-4ff8-aabd-f2db3b4d1a3d"
+    "subcategoryId": "7bf87f27-84b4-4ff8-aabd-f2db3b4d1a3d",
+    "image": null
   },
   {
     "category": "BROWNIES_AND_BARS",
@@ -525,7 +568,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 61,
-    "subcategoryId": "7bf87f27-84b4-4ff8-aabd-f2db3b4d1a3d"
+    "subcategoryId": "7bf87f27-84b4-4ff8-aabd-f2db3b4d1a3d",
+    "image": null
   },
   {
     "category": "BROWNIES_AND_BARS",
@@ -537,7 +581,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 62,
-    "subcategoryId": "7bf87f27-84b4-4ff8-aabd-f2db3b4d1a3d"
+    "subcategoryId": "7bf87f27-84b4-4ff8-aabd-f2db3b4d1a3d",
+    "image": null
   },
   {
     "category": "BROWNIES_AND_BARS",
@@ -549,7 +594,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 63,
-    "subcategoryId": "222c51ad-42d5-47b7-8834-65dfed28eb12"
+    "subcategoryId": "222c51ad-42d5-47b7-8834-65dfed28eb12",
+    "image": null
   },
   {
     "category": "BROWNIES_AND_BARS",
@@ -561,7 +607,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 64,
-    "subcategoryId": "3bd2d528-5590-4a32-97ef-8aa243fec23f"
+    "subcategoryId": "3bd2d528-5590-4a32-97ef-8aa243fec23f",
+    "image": null
   },
   {
     "category": "DONUTS_AND_FRITTERS",
@@ -573,7 +620,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 70,
-    "subcategoryId": "0a1bb0a8-1e75-4dff-aa89-ef991f4ad017"
+    "subcategoryId": "0a1bb0a8-1e75-4dff-aa89-ef991f4ad017",
+    "image": null
   },
   {
     "category": "DONUTS_AND_FRITTERS",
@@ -585,7 +633,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 71,
-    "subcategoryId": "0a1bb0a8-1e75-4dff-aa89-ef991f4ad017"
+    "subcategoryId": "0a1bb0a8-1e75-4dff-aa89-ef991f4ad017",
+    "image": null
   },
   {
     "category": "DONUTS_AND_FRITTERS",
@@ -597,7 +646,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 72,
-    "subcategoryId": "93bbd590-747e-4e8c-94c2-a559b60d4cb6"
+    "subcategoryId": "93bbd590-747e-4e8c-94c2-a559b60d4cb6",
+    "image": null
   },
   {
     "category": "DONUTS_AND_FRITTERS",
@@ -609,7 +659,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 73,
-    "subcategoryId": "d965f7f7-edcd-4bb9-9741-a193a889a149"
+    "subcategoryId": "d965f7f7-edcd-4bb9-9741-a193a889a149",
+    "image": null
   },
   {
     "category": "DONUTS_AND_FRITTERS",
@@ -621,7 +672,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 74,
-    "subcategoryId": "8d44597b-8eec-41ad-9a50-7961aad44090"
+    "subcategoryId": "8d44597b-8eec-41ad-9a50-7961aad44090",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -633,7 +685,8 @@
     "isVegan": false,
     "isGlutenFree": true,
     "sortOrder": 80,
-    "subcategoryId": "fc636dba-c186-4c81-9f13-cf0a46ca0890"
+    "subcategoryId": "fc636dba-c186-4c81-9f13-cf0a46ca0890",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -645,7 +698,8 @@
     "isVegan": false,
     "isGlutenFree": true,
     "sortOrder": 81,
-    "subcategoryId": "49b83e06-03bd-489d-8e99-9c6dadfcdcb0"
+    "subcategoryId": "49b83e06-03bd-489d-8e99-9c6dadfcdcb0",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -657,7 +711,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 82,
-    "subcategoryId": "cf634e4c-286c-4c66-9c3a-22bc09b0e1a4"
+    "subcategoryId": "cf634e4c-286c-4c66-9c3a-22bc09b0e1a4",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -669,7 +724,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 83,
-    "subcategoryId": "6583dcf4-f40d-4331-82e1-59ea2425bb22"
+    "subcategoryId": "6583dcf4-f40d-4331-82e1-59ea2425bb22",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -681,7 +737,8 @@
     "isVegan": false,
     "isGlutenFree": true,
     "sortOrder": 84,
-    "subcategoryId": "c4590cdb-ce9c-46ac-8883-e45bcc053121"
+    "subcategoryId": "c4590cdb-ce9c-46ac-8883-e45bcc053121",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -693,7 +750,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 85,
-    "subcategoryId": "b57020ae-2f7a-49b5-b8ad-9a03dda4df62"
+    "subcategoryId": "b57020ae-2f7a-49b5-b8ad-9a03dda4df62",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -705,7 +763,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 90,
-    "subcategoryId": "84a7e334-ae9b-46d9-adb1-c8ed5c8e06a8"
+    "subcategoryId": "84a7e334-ae9b-46d9-adb1-c8ed5c8e06a8",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -717,7 +776,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 91,
-    "subcategoryId": "84a7e334-ae9b-46d9-adb1-c8ed5c8e06a8"
+    "subcategoryId": "84a7e334-ae9b-46d9-adb1-c8ed5c8e06a8",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -729,7 +789,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 92,
-    "subcategoryId": "84a7e334-ae9b-46d9-adb1-c8ed5c8e06a8"
+    "subcategoryId": "84a7e334-ae9b-46d9-adb1-c8ed5c8e06a8",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -741,7 +802,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 93,
-    "subcategoryId": "1aea93c3-4672-426e-a5ec-8bb264539ae0"
+    "subcategoryId": "1aea93c3-4672-426e-a5ec-8bb264539ae0",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -753,7 +815,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 94,
-    "subcategoryId": "153c6c5a-e19c-4d8f-aaed-f0d5754dfb20"
+    "subcategoryId": "153c6c5a-e19c-4d8f-aaed-f0d5754dfb20",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -765,7 +828,8 @@
     "isVegan": false,
     "isGlutenFree": false,
     "sortOrder": 95,
-    "subcategoryId": "1a3c1afb-b87e-4e95-99e0-4d570d673c32"
+    "subcategoryId": "1a3c1afb-b87e-4e95-99e0-4d570d673c32",
+    "image": null
   },
   {
     "category": "CONFECTIONERY",
@@ -777,7 +841,8 @@
     "isVegan": false,
     "isGlutenFree": true,
     "sortOrder": 100,
-    "subcategoryId": "aa084fbb-d0d9-4c9a-aa53-a6748adb8bcf"
+    "subcategoryId": "aa084fbb-d0d9-4c9a-aa53-a6748adb8bcf",
+    "image": null
   },
   {
     "category": "CONFECTIONERY",
@@ -789,7 +854,8 @@
     "isVegan": false,
     "isGlutenFree": true,
     "sortOrder": 101,
-    "subcategoryId": "4ada82d4-10dc-4995-a6aa-55284e6dafaf"
+    "subcategoryId": "4ada82d4-10dc-4995-a6aa-55284e6dafaf",
+    "image": null
   },
   {
     "category": "CONFECTIONERY",
@@ -801,7 +867,8 @@
     "isVegan": false,
     "isGlutenFree": true,
     "sortOrder": 102,
-    "subcategoryId": "b9f61e27-9add-4608-98ae-23e0a0121ccd"
+    "subcategoryId": "b9f61e27-9add-4608-98ae-23e0a0121ccd",
+    "image": null
   },
   {
     "category": "CONFECTIONERY",
@@ -813,6 +880,7 @@
     "isVegan": false,
     "isGlutenFree": true,
     "sortOrder": 103,
-    "subcategoryId": "c6380a06-465a-4cc5-b6da-fa24b2ee0c32"
+    "subcategoryId": "c6380a06-465a-4cc5-b6da-fa24b2ee0c32",
+    "image": null
   }
 ]

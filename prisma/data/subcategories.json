@@ -5,7 +5,8 @@
     "slug": "celebration-cakes",
     "description": "Custom birthday, wedding, anniversary, and bespoke milestone cakes.",
     "sortOrder": 1,
-    "id": "996e2756-4cf5-434d-ac52-322bb4daf125"
+    "id": "996e2756-4cf5-434d-ac52-322bb4daf125",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -13,7 +14,8 @@
     "slug": "everyday-cakes",
     "description": "Casual teatime sponge cakes, pound cakes, and daily slice bakes.",
     "sortOrder": 2,
-    "id": "8593c9f8-df0e-4961-ac60-5cdde22addf9"
+    "id": "8593c9f8-df0e-4961-ac60-5cdde22addf9",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -21,7 +23,8 @@
     "slug": "cupcakes",
     "description": "Individually frosted, decorated gourmet cupcakes and mini cupcake boxes.",
     "sortOrder": 3,
-    "id": "e996dd89-46e7-4510-b875-9e6059180f4a"
+    "id": "e996dd89-46e7-4510-b875-9e6059180f4a",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -29,7 +32,8 @@
     "slug": "cheesecakes",
     "description": "Baked New York, Basque burnt, and cold-set artisanal fruit cheesecakes.",
     "sortOrder": 4,
-    "id": "80eede72-6d0e-47a0-ab09-433f7f693dc9"
+    "id": "80eede72-6d0e-47a0-ab09-433f7f693dc9",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -37,7 +41,8 @@
     "slug": "loaf-cakes",
     "description": "Banana breads, lemon drizzle, marble loaves, and dense tea bakes.",
     "sortOrder": 5,
-    "id": "601985d7-e741-4876-b49f-e260d64ef804"
+    "id": "601985d7-e741-4876-b49f-e260d64ef804",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -45,7 +50,8 @@
     "slug": "roll-cakes",
     "description": "Swiss rolls, Japanese roulades, and cream-filled sponge logs.",
     "sortOrder": 6,
-    "id": "913fe283-c9bc-4e38-a260-a58416edb700"
+    "id": "913fe283-c9bc-4e38-a260-a58416edb700",
+    "image": null
   },
   {
     "category": "CAKES",
@@ -53,7 +59,8 @@
     "slug": "mini-cakes",
     "description": "Bento cakes, mini layered gateaux, and single-serve celebration cakes.",
     "sortOrder": 7,
-    "id": "80751355-0b79-4816-bfaf-4e5d70073f4c"
+    "id": "80751355-0b79-4816-bfaf-4e5d70073f4c",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -61,7 +68,8 @@
     "slug": "cookies",
     "description": "Chunky chocolate chip, NYC style, chewy oatmeal, and stuffed cookies.",
     "sortOrder": 1,
-    "id": "b4f3a7e6-1abc-41e2-ba45-932937443c48"
+    "id": "b4f3a7e6-1abc-41e2-ba45-932937443c48",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -69,7 +77,8 @@
     "slug": "biscuits",
     "description": "Shortbreads, tea biscuits, nankhatai, and crispy butter biscuits.",
     "sortOrder": 2,
-    "id": "9f553b57-5cfe-4d87-82a6-91b68fb8eafe"
+    "id": "9f553b57-5cfe-4d87-82a6-91b68fb8eafe",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -77,7 +86,8 @@
     "slug": "macarons",
     "description": "French almond meringue shells filled with rich ganache, curd, or buttercream.",
     "sortOrder": 3,
-    "id": "8447e13f-e6e4-4e8c-a833-55947e6569dc"
+    "id": "8447e13f-e6e4-4e8c-a833-55947e6569dc",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -85,7 +95,8 @@
     "slug": "sandwich-cookies",
     "description": "Double-layered biscuit cookies with cream, caramel, or fruit jam fillings.",
     "sortOrder": 4,
-    "id": "2a9a73b0-9098-42fd-b972-e77eccd8e97b"
+    "id": "2a9a73b0-9098-42fd-b972-e77eccd8e97b",
+    "image": null
   },
   {
     "category": "COOKIES_AND_BISCUITS",
@@ -93,7 +104,8 @@
     "slug": "crackers",
     "description": "Artisanal savory crisps, seed crackers, and cheese wafers.",
     "sortOrder": 5,
-    "id": "47cc46d3-8c2a-4e38-b6c2-20c6ce9ab79a"
+    "id": "47cc46d3-8c2a-4e38-b6c2-20c6ce9ab79a",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -101,7 +113,8 @@
     "slug": "loaves",
     "description": "Country sourdough, sandwich bread, brioche, and whole wheat tin loaves.",
     "sortOrder": 1,
-    "id": "10f6b11a-2243-4993-a386-e6b9bdf62e7f"
+    "id": "10f6b11a-2243-4993-a386-e6b9bdf62e7f",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -109,7 +122,8 @@
     "slug": "buns",
     "description": "Soft burger buns, slider buns, pav, and dinner rolls.",
     "sortOrder": 2,
-    "id": "caaeb059-712b-4a5a-91cc-7567aaa44084"
+    "id": "caaeb059-712b-4a5a-91cc-7567aaa44084",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -117,7 +131,8 @@
     "slug": "rolls",
     "description": "Crusty artisan rolls, pretzel rolls, and knotted morning bread rolls.",
     "sortOrder": 3,
-    "id": "b3c1a082-a715-4440-bba5-4ddc72f38b44"
+    "id": "b3c1a082-a715-4440-bba5-4ddc72f38b44",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -125,7 +140,8 @@
     "slug": "bagels",
     "description": "Boiled and baked chewy bagels with sesame, everything seasoning, and plain.",
     "sortOrder": 4,
-    "id": "8d84abce-8fdc-4dee-b36b-b3511fbb9b95"
+    "id": "8d84abce-8fdc-4dee-b36b-b3511fbb9b95",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -133,7 +149,8 @@
     "slug": "baguettes",
     "description": "Traditional French long crusty loaves with open airy crumb structure.",
     "sortOrder": 5,
-    "id": "04a8fc24-86dd-45e4-aa4c-bcf1530b1e04"
+    "id": "04a8fc24-86dd-45e4-aa4c-bcf1530b1e04",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -141,7 +158,8 @@
     "slug": "flatbreads",
     "description": "Focaccia, pita, lavash, naan, and herb-oil flatbreads.",
     "sortOrder": 6,
-    "id": "5ba67ee8-67bd-41be-ad25-975fb68e692e"
+    "id": "5ba67ee8-67bd-41be-ad25-975fb68e692e",
+    "image": null
   },
   {
     "category": "BREADS",
@@ -149,7 +167,8 @@
     "slug": "specialty-breads",
     "description": "Gluten-free loaves, seed-heavy rye, challah, and seasonal festive breads.",
     "sortOrder": 7,
-    "id": "96ff001b-2bf0-4b94-8d6f-7e2e6f38e185"
+    "id": "96ff001b-2bf0-4b94-8d6f-7e2e6f38e185",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -157,7 +176,8 @@
     "slug": "croissants-and-laminated-pastries",
     "description": "Classic French butter croissants, pain au chocolat, and kouign-amann.",
     "sortOrder": 1,
-    "id": "d09b154c-743b-4af6-83bf-3094e2296337"
+    "id": "d09b154c-743b-4af6-83bf-3094e2296337",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -165,7 +185,8 @@
     "slug": "danish-pastries",
     "description": "Flaky laminated pastry with fruit custard, cream cheese, or pecan fillings.",
     "sortOrder": 2,
-    "id": "2cebe1f5-5b10-438f-aad4-f77271b8cb9d"
+    "id": "2cebe1f5-5b10-438f-aad4-f77271b8cb9d",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -173,7 +194,8 @@
     "slug": "choux-pastries",
     "description": "Eclairs, profiteroles, Paris-Brest, and choux au craquelin.",
     "sortOrder": 3,
-    "id": "334720bd-b3b0-4abe-97cc-3dd18508dca5"
+    "id": "334720bd-b3b0-4abe-97cc-3dd18508dca5",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -181,7 +203,8 @@
     "slug": "cream-pastries",
     "description": "Mille-feuille, napoleons, and layered puff cream horns.",
     "sortOrder": 4,
-    "id": "a31ca64c-48ac-4e2b-b51b-3d0b6efaa025"
+    "id": "a31ca64c-48ac-4e2b-b51b-3d0b6efaa025",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -189,7 +212,8 @@
     "slug": "filled-pastries",
     "description": "Fruit turnovers, strudels, and sweet hand pies.",
     "sortOrder": 5,
-    "id": "1f90f9c0-5851-4d1c-9644-646b7e674911"
+    "id": "1f90f9c0-5851-4d1c-9644-646b7e674911",
+    "image": null
   },
   {
     "category": "PASTRIES",
@@ -197,7 +221,8 @@
     "slug": "sweet-rolls",
     "description": "Cinnamon rolls, cardamom knots, babka slices, and sticky morning buns.",
     "sortOrder": 6,
-    "id": "bbfe3105-56f2-4f04-b983-fb8c9355abe6"
+    "id": "bbfe3105-56f2-4f04-b983-fb8c9355abe6",
+    "image": null
   },
   {
     "category": "PIES_TARTS_AND_QUICHES",
@@ -205,7 +230,8 @@
     "slug": "fruit-pies",
     "description": "Apple, cherry, berry, and seasonal spiced fruit lattice pies.",
     "sortOrder": 1,
-    "id": "d1fd6c6a-d8be-4d04-9803-c5b4d84d8e48"
+    "id": "d1fd6c6a-d8be-4d04-9803-c5b4d84d8e48",
+    "image": null
   },
   {
     "category": "PIES_TARTS_AND_QUICHES",
@@ -213,7 +239,8 @@
     "slug": "cream-and-custard-pies",
     "description": "Banoffee pie, chocolate silk, pumpkin pie, and key lime pies.",
     "sortOrder": 2,
-    "id": "d7ac87dd-87e4-4b29-9295-915b966f62cd"
+    "id": "d7ac87dd-87e4-4b29-9295-915b966f62cd",
+    "image": null
   },
   {
     "category": "PIES_TARTS_AND_QUICHES",
@@ -221,7 +248,8 @@
     "slug": "sweet-tarts",
     "description": "Lemon meringue tarts, dark chocolate ganache, and fresh fruit tartlets.",
     "sortOrder": 3,
-    "id": "ba64155c-2367-452d-b22c-421c5ca15846"
+    "id": "ba64155c-2367-452d-b22c-421c5ca15846",
+    "image": null
   },
   {
     "category": "PIES_TARTS_AND_QUICHES",
@@ -229,7 +257,8 @@
     "slug": "savory-tarts",
     "description": "Caramelized onion, goat cheese, mushroom, and heirloom tomato tarts.",
     "sortOrder": 4,
-    "id": "82c0521b-df2e-4a94-9339-15e0517e7d38"
+    "id": "82c0521b-df2e-4a94-9339-15e0517e7d38",
+    "image": null
   },
   {
     "category": "PIES_TARTS_AND_QUICHES",
@@ -237,7 +266,8 @@
     "slug": "quiches",
     "description": "Quiche Lorraine, spinach & feta, mushroom leek, and crustless quiches.",
     "sortOrder": 5,
-    "id": "d271a3b3-8db4-492f-86f6-a908fd9b7251"
+    "id": "d271a3b3-8db4-492f-86f6-a908fd9b7251",
+    "image": null
   },
   {
     "category": "BROWNIES_AND_BARS",
@@ -245,7 +275,8 @@
     "slug": "brownies",
     "description": "Fudgy Belgian chocolate brownies, walnut, cheesecake swirl, and salted caramel.",
     "sortOrder": 1,
-    "id": "7bf87f27-84b4-4ff8-aabd-f2db3b4d1a3d"
+    "id": "7bf87f27-84b4-4ff8-aabd-f2db3b4d1a3d",
+    "image": null
   },
   {
     "category": "BROWNIES_AND_BARS",
@@ -253,7 +284,8 @@
     "slug": "blondies",
     "description": "Brown butter vanilla blondies, white chocolate raspberry, and biscoff bars.",
     "sortOrder": 2,
-    "id": "222c51ad-42d5-47b7-8834-65dfed28eb12"
+    "id": "222c51ad-42d5-47b7-8834-65dfed28eb12",
+    "image": null
   },
   {
     "category": "BROWNIES_AND_BARS",
@@ -261,7 +293,8 @@
     "slug": "dessert-bars",
     "description": "Lemon bars, Millionaire's shortbread, pecan squares, and crumble bars.",
     "sortOrder": 3,
-    "id": "3bd2d528-5590-4a32-97ef-8aa243fec23f"
+    "id": "3bd2d528-5590-4a32-97ef-8aa243fec23f",
+    "image": null
   },
   {
     "category": "BROWNIES_AND_BARS",
@@ -269,7 +302,8 @@
     "slug": "granola-and-snack-bars",
     "description": "Oat energy bars, honey nut flapjacks, and seed snack squares.",
     "sortOrder": 4,
-    "id": "c8c7456d-d6a8-4b97-8c66-2e4197614b59"
+    "id": "c8c7456d-d6a8-4b97-8c66-2e4197614b59",
+    "image": null
   },
   {
     "category": "DONUTS_AND_FRITTERS",
@@ -277,7 +311,8 @@
     "slug": "yeast-donuts",
     "description": "Light, airy glazed ring donuts, chocolate frosted, and sprinkle donuts.",
     "sortOrder": 1,
-    "id": "0a1bb0a8-1e75-4dff-aa89-ef991f4ad017"
+    "id": "0a1bb0a8-1e75-4dff-aa89-ef991f4ad017",
+    "image": null
   },
   {
     "category": "DONUTS_AND_FRITTERS",
@@ -285,7 +320,8 @@
     "slug": "cake-donuts",
     "description": "Dense, spiced old-fashioned donuts, cider donuts, and sour cream rings.",
     "sortOrder": 2,
-    "id": "26fa421a-8bc2-41db-b3da-7a4c9f3ccca4"
+    "id": "26fa421a-8bc2-41db-b3da-7a4c9f3ccca4",
+    "image": null
   },
   {
     "category": "DONUTS_AND_FRITTERS",
@@ -293,7 +329,8 @@
     "slug": "filled-donuts",
     "description": "Boston cream, raspberry jelly, custard, and nutella filled donuts.",
     "sortOrder": 3,
-    "id": "93bbd590-747e-4e8c-94c2-a559b60d4cb6"
+    "id": "93bbd590-747e-4e8c-94c2-a559b60d4cb6",
+    "image": null
   },
   {
     "category": "DONUTS_AND_FRITTERS",
@@ -301,7 +338,8 @@
     "slug": "bomboloni",
     "description": "Italian sugar-rolled fried dough balls stuffed with pastry cream or pistachio.",
     "sortOrder": 4,
-    "id": "d965f7f7-edcd-4bb9-9741-a193a889a149"
+    "id": "d965f7f7-edcd-4bb9-9741-a193a889a149",
+    "image": null
   },
   {
     "category": "DONUTS_AND_FRITTERS",
@@ -309,7 +347,8 @@
     "slug": "fritters",
     "description": "Apple cinnamon fritters, banana fritters, and beignets.",
     "sortOrder": 5,
-    "id": "8d44597b-8eec-41ad-9a50-7961aad44090"
+    "id": "8d44597b-8eec-41ad-9a50-7961aad44090",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -317,7 +356,8 @@
     "slug": "mousse",
     "description": "Silky dark chocolate mousse, mango passionfruit, and white chocolate pots.",
     "sortOrder": 1,
-    "id": "fc636dba-c186-4c81-9f13-cf0a46ca0890"
+    "id": "fc636dba-c186-4c81-9f13-cf0a46ca0890",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -325,7 +365,8 @@
     "slug": "puddings-and-custards",
     "description": "Crème brûlée, bread & butter pudding, flan, and caramel custards.",
     "sortOrder": 2,
-    "id": "49b83e06-03bd-489d-8e99-9c6dadfcdcb0"
+    "id": "49b83e06-03bd-489d-8e99-9c6dadfcdcb0",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -333,7 +374,8 @@
     "slug": "tiramisu-and-trifles",
     "description": "Classic espresso mascarpone tiramisu and layered English berry trifles.",
     "sortOrder": 3,
-    "id": "cf634e4c-286c-4c66-9c3a-22bc09b0e1a4"
+    "id": "cf634e4c-286c-4c66-9c3a-22bc09b0e1a4",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -341,7 +383,8 @@
     "slug": "panna-cotta-and-cream-desserts",
     "description": "Vanilla bean panna cotta, fruit coulis cups, and possets.",
     "sortOrder": 4,
-    "id": "c4590cdb-ce9c-46ac-8883-e45bcc053121"
+    "id": "c4590cdb-ce9c-46ac-8883-e45bcc053121",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -349,7 +392,8 @@
     "slug": "dessert-cups-and-jars",
     "description": "Layered cake jars, cheesecake parfaits, and portable dessert shooters.",
     "sortOrder": 5,
-    "id": "6583dcf4-f40d-4331-82e1-59ea2425bb22"
+    "id": "6583dcf4-f40d-4331-82e1-59ea2425bb22",
+    "image": null
   },
   {
     "category": "DESSERTS",
@@ -357,7 +401,8 @@
     "slug": "other-desserts",
     "description": "Pavlovas, meringues, molten lava cakes, and seasonal creations.",
     "sortOrder": 6,
-    "id": "b57020ae-2f7a-49b5-b8ad-9a03dda4df62"
+    "id": "b57020ae-2f7a-49b5-b8ad-9a03dda4df62",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -365,7 +410,8 @@
     "slug": "puffs",
     "description": "Flaky veg puffs, paneer tikka puffs, chicken curry puffs, and egg puffs.",
     "sortOrder": 1,
-    "id": "84a7e334-ae9b-46d9-adb1-c8ed5c8e06a8"
+    "id": "84a7e334-ae9b-46d9-adb1-c8ed5c8e06a8",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -373,7 +419,8 @@
     "slug": "patties",
     "description": "Crisp potato patties, spiced corn cheese patties, and meat patties.",
     "sortOrder": 2,
-    "id": "1aea93c3-4672-426e-a5ec-8bb264539ae0"
+    "id": "1aea93c3-4672-426e-a5ec-8bb264539ae0",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -381,7 +428,8 @@
     "slug": "stuffed-bakes",
     "description": "Calzones, savory bread rolls, stuffed garlic bread, and savory buns.",
     "sortOrder": 3,
-    "id": "153c6c5a-e19c-4d8f-aaed-f0d5754dfb20"
+    "id": "153c6c5a-e19c-4d8f-aaed-f0d5754dfb20",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -389,7 +437,8 @@
     "slug": "savory-pastries",
     "description": "Cheese straws, gougères, vol-au-vents, and sausage rolls.",
     "sortOrder": 4,
-    "id": "ad2574c9-cc5d-427c-b53e-6e9272a55624"
+    "id": "ad2574c9-cc5d-427c-b53e-6e9272a55624",
+    "image": null
   },
   {
     "category": "SAVORY_BAKES",
@@ -397,7 +446,8 @@
     "slug": "pizza-and-savory-breads",
     "description": "Focaccia pizza slabs, olive herb pull-aparts, and cheese swirl breads.",
     "sortOrder": 5,
-    "id": "1a3c1afb-b87e-4e95-99e0-4d570d673c32"
+    "id": "1a3c1afb-b87e-4e95-99e0-4d570d673c32",
+    "image": null
   },
   {
     "category": "CONFECTIONERY",
@@ -405,7 +455,8 @@
     "slug": "chocolates",
     "description": "Handmade bean-to-bar chocolate bars, bonbons, and chocolate barks.",
     "sortOrder": 1,
-    "id": "aa084fbb-d0d9-4c9a-aa53-a6748adb8bcf"
+    "id": "aa084fbb-d0d9-4c9a-aa53-a6748adb8bcf",
+    "image": null
   },
   {
     "category": "CONFECTIONERY",
@@ -413,7 +464,8 @@
     "slug": "truffles",
     "description": "Cocoa-dusted ganache truffles, hazelnut pralines, and liqueur truffles.",
     "sortOrder": 2,
-    "id": "4ada82d4-10dc-4995-a6aa-55284e6dafaf"
+    "id": "4ada82d4-10dc-4995-a6aa-55284e6dafaf",
+    "image": null
   },
   {
     "category": "CONFECTIONERY",
@@ -421,7 +473,8 @@
     "slug": "fudge",
     "description": "Rich chocolate fudge, vanilla walnut fudge, and peanut butter squares.",
     "sortOrder": 3,
-    "id": "b9f61e27-9add-4608-98ae-23e0a0121ccd"
+    "id": "b9f61e27-9add-4608-98ae-23e0a0121ccd",
+    "image": null
   },
   {
     "category": "CONFECTIONERY",
@@ -429,7 +482,8 @@
     "slug": "caramels-and-toffees",
     "description": "Salted butter soft caramels, English toffee brittle, and butterscotch chews.",
     "sortOrder": 4,
-    "id": "c6380a06-465a-4cc5-b6da-fa24b2ee0c32"
+    "id": "c6380a06-465a-4cc5-b6da-fa24b2ee0c32",
+    "image": null
   },
   {
     "category": "CONFECTIONERY",
@@ -437,6 +491,7 @@
     "slug": "other-confectionery",
     "description": "Artisanal marshmallows, Turkish delight, fruit pâte de fruits, and pralines.",
     "sortOrder": 5,
-    "id": "8284040f-889b-400d-88b3-fd5117eee020"
+    "id": "8284040f-889b-400d-88b3-fd5117eee020",
+    "image": null
   }
 ]
