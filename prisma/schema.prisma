@@ -172,11 +172,82 @@ model Product {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  // Category & Catalog relations
+  subcategoryId    String?         @db.Uuid
+  subcategory      Subcategory?    @relation(fields: [subcategoryId], references: [id], onDelete: SetNull)
+
+  catalogProductId String?         @db.Uuid
+  catalogProduct   CatalogProduct? @relation(fields: [catalogProductId], references: [id], onDelete: SetNull)
+
   // Media relation
   media Image[]
 
   @@index([storeId])
+  @@index([subcategoryId])
+  @@index([catalogProductId])
   @@map("product")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// PRODUCT SUBCATEGORY (MASTER)
+// ─────────────────────────────────────────────────────────────
+
+model Subcategory {
+  id          String          @id @default(uuid(7)) @db.Uuid
+  category    ProductCategory
+  name        String
+  slug        String
+  description String?
+  sortOrder   Int             @default(0)
+  isActive    Boolean         @default(true)
+
+  // Relations
+  catalogProducts CatalogProduct[]
+  storeProducts   Product[]
+
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@unique([category, slug])
+  @@index([category, isActive])
+  @@map("subcategory")
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// CATALOG / DEFAULT TEMPLATE PRODUCTS (MASTER)
+// ─────────────────────────────────────────────────────────────
+
+model CatalogProduct {
+  id             String          @id @default(uuid(7)) @db.Uuid
+  category       ProductCategory
+  subcategoryId  String?         @db.Uuid
+  subcategory    Subcategory?    @relation(fields: [subcategoryId], references: [id], onDelete: SetNull)
+
+  name           String
+  slug           String          @unique
+  description    String?
+  suggestedPrice Decimal?        @db.Decimal(10, 2)
+  defaultImages  String[]        @default([])
+
+  // Default dietary flags
+  isEggless      Boolean         @default(true)
+  isVegan        Boolean         @default(false)
+  isGlutenFree   Boolean         @default(false)
+
+  sortOrder      Int             @default(0)
+  isActive       Boolean         @default(true)
+
+  // Linked store products created from this template
+  storeProducts  Product[]
+
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@index([category, isActive])
+  @@index([subcategoryId])
+  @@map("catalog_product")
 }
 
 
